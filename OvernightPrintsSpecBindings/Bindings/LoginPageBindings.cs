@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OvernightPrintsSpecBindings.TestBase;
@@ -14,30 +10,24 @@ namespace OvernightPrintsSpecBindings.Bindings
     [Binding]
     class LoginPageBindings
     {
-        LoginPage Page = new LoginPage();
-
-        [When(@"I click Log In button")]
-        public void WhenIClickLogInButton()
-        {
-            Page.ClickLogIn();
-        }
+        LoginPopUpPage _popUpPage = new LoginPopUpPage();
 
         [When(@"I write my email ""(.*)""")]
         public void WhenIWriteMyEmail(string email)
         {
-            Page.TypeEmail(email);
+            _popUpPage.TypeEmail(email);
         }
 
         [When(@"I write my password ""(.*)""")]
         public void WhenIWriteMyPassword(String pass)
         {
-            Page.TypePass(pass);
+            _popUpPage.TypePass(pass);
         }
 
         [When(@"I click submit button")]
         public void WhenIClickSubmitButton()
         {
-            Page.ClickSubmit();
+            _popUpPage.ClickSubmit();
         }
 
         [Then(@"I see displayed link MY ACCOUNT")]

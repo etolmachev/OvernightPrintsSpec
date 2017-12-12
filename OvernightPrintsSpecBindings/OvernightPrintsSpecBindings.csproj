@@ -84,11 +84,13 @@
   <ItemGroup>
     <Compile Include="Bindings\CommonBindings.cs" />
     <Compile Include="Bindings\LoginPageBindings.cs" />
+    <Compile Include="Bindings\MainPageBindings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestBase\Browser.cs" />
     <Compile Include="TestBase\Cleanup.cs" />
     <Compile Include="TestBase\HtmlElement.cs" />
-    <Compile Include="TestBase\Pages\LoginPage.cs" />
+    <Compile Include="TestBase\Pages\LoginPopUpPage.cs" />
+    <Compile Include="TestBase\Pages\MainPage.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
