@@ -25,25 +25,25 @@ namespace OvernightPrintsSpecBindings.TestBase.Pages
 
 
         /// <summary>
-        /// Метод заполняет поле email, переданным значением
+        /// The method fills the email field passed by the value
         /// </summary>
-        /// <param name="email">Значение email для заполнения</param> 
+        /// <param name="email">Email value for filling</param> 
         public void TypeEmail(String email)
         {
             EmailElement.SendKeys(email);
         }
 
         /// <summary>
-        /// Метод заполняет поле пароля, переданным значением
+        /// The method fills the password field passed by the value
         /// </summary>
-        /// <param name="pass">Значение pass для заполнения</param>
+        /// <param name="pass">The pass value to fill</param>
         public void TypePass(String pass)
         {
             PassElement.SendKeys(pass);
         }
 
         /// <summary>
-        /// Метод, нажимает кнопку подтвреждения входа
+        /// Method press submit Login button
         /// </summary>
         public void ClickSubmit()
         {
@@ -51,7 +51,7 @@ namespace OvernightPrintsSpecBindings.TestBase.Pages
         }
 
         /// <summary>
-        /// Метод, нажимает кнопку, которая переводит на страницу регистрации пользователя
+        /// Method, press a button that redirect the user to registration page
         /// </summary>
         public void ClickCreateMyAccount()
         {

@@ -18,7 +18,7 @@ namespace OvernightPrintsSpecBindings.TestBase.Pages
         }
 
         /// <summary>
-        /// Метод, нажимает кнопку для перехода на страницу входа
+        /// Method press the button to go to the login page
         /// </summary>
         public void ClickLogIn()
         {

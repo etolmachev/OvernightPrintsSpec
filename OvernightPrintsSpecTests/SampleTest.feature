@@ -10,8 +10,10 @@ Scenario: Open Login Page and Click Sign In Button
 	And I navigate to url "https://www.overnightprints.com"
 
 	When I click Log In button
-	And I write my email "afd@tr.su"
-	And I write my password "12f3456"
+	When I set following parameters on LoginPopUpPage
+		| Field    | Value     |
+		| Email    | afd@tr.su |
+		| Password | 12f3456   |
 	And I click submit button	
 	Then I see displayed link MY ACCOUNT
 

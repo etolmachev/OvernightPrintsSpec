@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OvernightPrintsSpecBindings.TestBase;
@@ -11,18 +12,6 @@ namespace OvernightPrintsSpecBindings.Bindings
     class LoginPageBindings
     {
         LoginPopUpPage _popUpPage = new LoginPopUpPage();
-
-        [When(@"I write my email ""(.*)""")]
-        public void WhenIWriteMyEmail(string email)
-        {
-            _popUpPage.TypeEmail(email);
-        }
-
-        [When(@"I write my password ""(.*)""")]
-        public void WhenIWriteMyPassword(String pass)
-        {
-            _popUpPage.TypePass(pass);
-        }
 
         [When(@"I click submit button")]
         public void WhenIClickSubmitButton()
@@ -39,6 +28,27 @@ namespace OvernightPrintsSpecBindings.Bindings
             Assert.AreEqual(textLink, "MY ACCOUNT");
         }
 
+        [When(@"I set following parameters on LoginPopUpPage")]
+        public void WhenISetFollowingParametersOnLoginPopUpPage(Table table)
+        {
+            foreach (var row in table.Rows)
+            {
+                string key = row["Field"];
 
+                switch (key)
+                {
+                    case "Email":
+                        _popUpPage.TypeEmail(row["Value"]);
+                        break;
+
+                    case "Password":
+                        _popUpPage.TypePass(row["Value"]);
+                        break;
+
+                    default:
+                        throw new NotImplementedException();
+                }
+            }
+        }
     }
 }
