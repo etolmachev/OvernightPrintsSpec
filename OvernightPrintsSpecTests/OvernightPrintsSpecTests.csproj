@@ -81,8 +81,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FFs\LogIn_Feature.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LogIn_Feature.feature</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SampleTest.feature.cs">
+    <Compile Include="FFs\SampleTest.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SampleTest.feature</DependentUpon>
@@ -96,7 +101,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="SampleTest.feature">
+    <None Include="FFs\LogIn_Feature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>LogIn_Feature.feature.cs</LastGenOutput>
+    </None>
+    <None Include="FFs\SampleTest.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>SampleTest.feature.cs</LastGenOutput>
     </None>

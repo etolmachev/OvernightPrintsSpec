@@ -11,7 +11,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace OvernightPrintsSpecTests
+namespace OvernightPrintsSpecTests.FFs
 {
     using TechTalk.SpecFlow;
     
