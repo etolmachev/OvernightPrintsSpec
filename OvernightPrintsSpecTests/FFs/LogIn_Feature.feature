@@ -4,37 +4,78 @@
 	I want to log into the website
 
 @mytag
-Scenario: Failure Login with Null Credentials
-	Given User is at the Main Page
-	And Navigate to LogInPopUp Page
-	When User click Log in button
-	Then User see an error message
+Scenario Template: Failure Login With Invalid Credentials
+	Given I open browser
+	And I navigate to url "https://www.overnightprints.com"
+	When I click Log in button on Main Page
+	And I set following parameters on Login popup
+		| Field         | Value      |
+		| Email Address | <email>    |
+		| Password      | <password> |
+	And I click Log in button on Login popup
 
+	Then I see an error message with
+		| Field   | Value                                                                       |
+		| message | The login and/or the password does not match our records. Please try again. |
+	And I see that user is not logged in
 
-Scenario Outline: Failure Login With Invalid Credentials
-	Given User is at the Main Page
-	And Navigate to LogInPopUp Page
-	When User set <email> and <password>
-	And User click Log In Button
-	Then User see an error message
 	Examples: 
-	| email                       | password                    |
-	| invalid@tr.su               | invalid                     |
-	| afd@tr.su                   | invalid                     |
-	| <script>alert(123)</script> | 12f3456                     |
-	| afd@tr.su                   | <script>alert(123)</script> |
+		| Email Address               | Password                    |
+		| invalid@tr.su               | invalid                     |
+		| afd@tr.su                   | invalid                     |
+		| <script>alert(123)</script> | 12f3456                     |
+		| afd@tr.su                   | <script>alert(123)</script> |
+		| afd@tr.su                   |                             |
+		|                             |                             |
 
 
-Scenario: Failure Login With Valid Email and Null Password
-	Given User is at the Main Page
-	And Navigate to LogInPopUp Page
-	When User set email afd@tr.su
-	And User click Log In Buttom
-	Then User see an error message 
+Scenario Template: Successfully Login With Valid Credentials
+	Given I open browser
+	And I navigate to url "https://www.overnightprints.com"
+	When I click Log in button on Main Page
+	And I set following parameters on Login popup
+		| Field         | Value      |
+		| Email Address | <email>    |
+		| Password      | <password> |
+	And I click Log in button on Login popup
+	Then I see element
+		| Field   | Value      |
+		| Element | My Account |
+	And I see that user is logged in
+
+	Examples: 
+		| Email Address  | Password |
+		| afd@tr.su      | 12f3456  |
+		| "   afd@tr.su" | 12f3456  |
+		| "afd@tr.su   " | 12f3456  |
+		| " afd@tr.su  " | 12f3456  |
 
 
 Scenario: Redirect to page Reset Password
-	Given User is at the Main Page
-	And Navigate to LogInPopUp Page
-	When User click link "Forgot you password"
-	Then User redirect to Page Reset Password
+	Given I open browser
+	And I navigate to url "https://www.overnightprints.com"
+	When I click Log in button on Main Page
+	And I click Link Name on Login popup 
+		| Field     | Value               |
+		| Link Name | Forgot you password |
+	Then I see Reset Password page
+
+
+Scenario: Verification Return Button
+	Given I open browser
+	And I navigate to url "https://www.overnightprints.com"
+	When I click Log in button on Main Page
+	And I set following parameters on Login popup
+		| Field         | Value     |
+		| Email Address | afd@tr.su |
+		| Password      | 12f3456   |
+	And I click Return button on Login popup
+	Then I see Main page
+
+	When I click Log in button on Main Page
+	Then I see following information on Login popup
+		| Field         | Value |
+		| Email Address |       |
+		| Password      |       |
+	And I see that user is not logged in
+

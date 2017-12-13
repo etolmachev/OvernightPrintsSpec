@@ -32,8 +32,8 @@ namespace OvernightPrintsSpecTests.FFs
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "LogIn_Feature", "In order to access my account on the website https://www.overnightprints.com\nAs a" +
-                    " user of the website\nI want to log into the website", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "LogIn_Feature", "In order to access my account on the website https://www.overnightprints.com\r\nAs " +
+                    "a user of the website\r\nI want to log into the website", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -66,68 +66,102 @@ namespace OvernightPrintsSpecTests.FFs
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Failure Login with Null Credentials")]
-        [NUnit.Framework.CategoryAttribute("mytag")]
-        public virtual void FailureLoginWithNullCredentials()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Failure Login with Null Credentials", new string[] {
-                        "mytag"});
-#line 7
-this.ScenarioSetup(scenarioInfo);
-#line 8
- testRunner.Given("User is at the Main Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 9
- testRunner.And("Navigate to LogInPopUp Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 10
- testRunner.When("User click Log in button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 11
- testRunner.Then("User see an error message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Failure Login With Invalid Credentials")]
+        [NUnit.Framework.CategoryAttribute("mytag")]
         [NUnit.Framework.TestCaseAttribute("invalid@tr.su", "invalid", null)]
         [NUnit.Framework.TestCaseAttribute("afd@tr.su", "invalid", null)]
         [NUnit.Framework.TestCaseAttribute("<script>alert(123)</script>", "12f3456", null)]
         [NUnit.Framework.TestCaseAttribute("afd@tr.su", "<script>alert(123)</script>", null)]
-        public virtual void FailureLoginWithInvalidCredentials(string email, string password, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("afd@tr.su", "", null)]
+        [NUnit.Framework.TestCaseAttribute("", "", null)]
+        public virtual void FailureLoginWithInvalidCredentials(string emailAddress, string password, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Failure Login With Invalid Credentials", exampleTags);
-#line 14
+            string[] @__tags = new string[] {
+                    "mytag"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Failure Login With Invalid Credentials", @__tags);
+#line 7
 this.ScenarioSetup(scenarioInfo);
+#line 8
+ testRunner.Given("I open browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 9
+ testRunner.And("I navigate to url \"https://www.overnightprints.com\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 10
+ testRunner.When("I click Log in button on Main Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Field",
+                        "Value"});
+            table1.AddRow(new string[] {
+                        "Email Address",
+                        "<email>"});
+            table1.AddRow(new string[] {
+                        "Password",
+                        "<password>"});
+#line 11
+ testRunner.And("I set following parameters on Login popup", ((string)(null)), table1, "And ");
 #line 15
- testRunner.Given("User is at the Main Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 16
- testRunner.And("Navigate to LogInPopUp Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I click Log in button on Login popup", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Field",
+                        "Value"});
+            table2.AddRow(new string[] {
+                        "message",
+                        "The login and/or the password does not match our records. Please try again."});
 #line 17
- testRunner.When(string.Format("User set {0} and {1}", email, password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 18
- testRunner.And("User click Log In Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 19
- testRunner.Then("User see an error message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I see an error message with", ((string)(null)), table2, "Then ");
+#line 20
+ testRunner.And("I see that user is not logged in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Failure Login With Valid Email and Null Password")]
-        public virtual void FailureLoginWithValidEmailAndNullPassword()
+        [NUnit.Framework.DescriptionAttribute("Successfully Login With Valid Credentials")]
+        [NUnit.Framework.TestCaseAttribute("afd@tr.su", "12f3456", null)]
+        [NUnit.Framework.TestCaseAttribute("\"   afd@tr.su\"", "12f3456", null)]
+        [NUnit.Framework.TestCaseAttribute("\"afd@tr.su   \"", "12f3456", null)]
+        [NUnit.Framework.TestCaseAttribute("\" afd@tr.su  \"", "12f3456", null)]
+        public virtual void SuccessfullyLoginWithValidCredentials(string emailAddress, string password, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Failure Login With Valid Email and Null Password", ((string[])(null)));
-#line 28
-this.ScenarioSetup(scenarioInfo);
-#line 29
- testRunner.Given("User is at the Main Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 30
- testRunner.And("Navigate to LogInPopUp Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 31
- testRunner.When("User set email afd@tr.su", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Successfully Login With Valid Credentials", exampleTags);
 #line 32
- testRunner.And("User click Log In Buttom", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+this.ScenarioSetup(scenarioInfo);
 #line 33
- testRunner.Then("User see an error message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Given("I open browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 34
+ testRunner.And("I navigate to url \"https://www.overnightprints.com\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 35
+ testRunner.When("I click Log in button on Main Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Field",
+                        "Value"});
+            table3.AddRow(new string[] {
+                        "Email Address",
+                        "<email>"});
+            table3.AddRow(new string[] {
+                        "Password",
+                        "<password>"});
+#line 36
+ testRunner.And("I set following parameters on Login popup", ((string)(null)), table3, "And ");
+#line 40
+ testRunner.And("I click Log in button on Login popup", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Field",
+                        "Value"});
+            table4.AddRow(new string[] {
+                        "Element",
+                        "My Account"});
+#line 41
+ testRunner.Then("I see element", ((string)(null)), table4, "Then ");
+#line 44
+ testRunner.And("I see that user is logged in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -137,16 +171,74 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void RedirectToPageResetPassword()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Redirect to page Reset Password", ((string[])(null)));
-#line 36
+#line 54
 this.ScenarioSetup(scenarioInfo);
-#line 37
- testRunner.Given("User is at the Main Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 38
- testRunner.And("Navigate to LogInPopUp Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 39
- testRunner.When("User click link \"Forgot you password\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 40
- testRunner.Then("User redirect to Page Reset Password", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 55
+ testRunner.Given("I open browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 56
+ testRunner.And("I navigate to url \"https://www.overnightprints.com\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 57
+ testRunner.When("I click Log in button on Main Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Field",
+                        "Value"});
+            table5.AddRow(new string[] {
+                        "Link Name",
+                        "Forgot you password"});
+#line 58
+ testRunner.And("I click Link Name on Login popup", ((string)(null)), table5, "And ");
+#line 61
+ testRunner.Then("I see Reset Password page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Verification Return Button")]
+        public virtual void VerificationReturnButton()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verification Return Button", ((string[])(null)));
+#line 64
+this.ScenarioSetup(scenarioInfo);
+#line 65
+ testRunner.Given("I open browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 66
+ testRunner.And("I navigate to url \"https://www.overnightprints.com\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 67
+ testRunner.When("I click Log in button on Main Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Field",
+                        "Value"});
+            table6.AddRow(new string[] {
+                        "Email Address",
+                        "afd@tr.su"});
+            table6.AddRow(new string[] {
+                        "Password",
+                        "12f3456"});
+#line 68
+ testRunner.And("I set following parameters on Login popup", ((string)(null)), table6, "And ");
+#line 72
+ testRunner.And("I click Return button on Login popup", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 73
+ testRunner.Then("I see Main page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 75
+ testRunner.When("I click Log in button on Main Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Field",
+                        "Value"});
+            table7.AddRow(new string[] {
+                        "Email Address",
+                        ""});
+            table7.AddRow(new string[] {
+                        "Password",
+                        ""});
+#line 76
+ testRunner.Then("I see following information on Login popup", ((string)(null)), table7, "Then ");
+#line 80
+ testRunner.And("I see that user is not logged in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
