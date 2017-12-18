@@ -4,7 +4,7 @@
 	I want to reset my password
 
 @mytag
-Scenario Template: Name 
+Scenario Template: Successfully Reset Password 
 	Given I open browser
 	And I navigate to url "https://www.overnightprints.com"
 	When I click Log in button on Main Page
@@ -30,3 +30,48 @@ Scenario Template: Name
 		| email         |
 		| invalid@tr.su |
 		| afd@tr.su     |
+
+
+Scenario: Verification Cancel Button
+	Given I open browser
+	And I navigate to url "https://www.overnightprints.com"
+	When I click Log in button on Main Page
+	And I click Forgot you password on Login popup
+	Then I see Reset Password popup
+
+	When I set following parameters on Reset Password popup
+		| Field         | Value     |
+		| Email Address | afd@tr.su |
+	And I click Cancel Button on Reset Password popup
+	Then I see Login popup 
+	And I see following information on Login popup
+		| Field         | Value |
+		| Email Address |       |
+		| Password      |       |
+
+	When I set following parameters on Login popup
+		| Field         | Value     |
+		| Email Address | afd@tr.su |
+		| Password      | 12f3456   |
+	And I click Log in button on Login popup
+	Then I see element My Account on the Main page
+	And I see that user is logged in
+
+
+Scenario: Failure Reset Password with Invalid Credentials
+	Given I open browser
+	And I navigate to url "https://www.overnightprints.com"
+	When I click Log in button on Main Page
+	And I click Forgot you password on Login popup
+	Then I see Reset Password popup
+
+	When I set following parameters on Reset Password popup
+	| Field         | Value   |
+	| Email Address | <email> |
+	And I click Cancel Button on Reset Password popup
+	Then I see Reset Password popup
+
+	Examples: 
+		| email   |
+		|         |
+		| gbgfgdf |
