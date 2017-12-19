@@ -14,7 +14,7 @@ Scenario Template: Failure Login With Invalid Credentials
 		| Password      | <password> |
 	And I click Log in button on Login popup
 
-	Then I see an error message with
+	Then I see an error message on the Login popup with
 		| Field   | Value                                                                       |
 		| Message | The login and/or the password does not match our records. Please try again. |
 	And I see that user is not logged in
@@ -77,4 +77,3 @@ Scenario: Verification Return Button
 		| Email Address |       |
 		| Password      |       |
 	And I see that user is not logged in
-

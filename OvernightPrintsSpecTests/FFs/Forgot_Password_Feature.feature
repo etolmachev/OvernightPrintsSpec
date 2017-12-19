@@ -58,7 +58,7 @@ Scenario: Verification Cancel Button
 	And I see that user is logged in
 
 
-Scenario: Failure Reset Password with Invalid Credentials
+Scenario Template: Failure Reset Password with Invalid Credentials
 	Given I open browser
 	And I navigate to url "https://www.overnightprints.com"
 	When I click Log in button on Main Page
@@ -69,9 +69,11 @@ Scenario: Failure Reset Password with Invalid Credentials
 	| Field         | Value   |
 	| Email Address | <email> |
 	And I click Cancel Button on Reset Password popup
-	Then I see Reset Password popup
+	Then I see an error message on Reset Password popup with
+		| Field   | Value           |
+		| Message | <messageChrome> |
 
-	Examples: 
-		| email   |
-		|         |
-		| gbgfgdf |
+	Examples:
+		| email   | messageChrome                               |
+		|         | Please fill out this field.                 |
+		| gbgfgdf | Please include an '@' in the email address. |

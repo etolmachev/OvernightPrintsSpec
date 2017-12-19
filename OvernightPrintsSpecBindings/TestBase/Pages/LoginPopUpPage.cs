@@ -3,59 +3,86 @@ using OpenQA.Selenium;
 
 namespace OvernightPrintsSpecBindings.TestBase.Pages
 {
-    public class LoginPopUpPage
-    {
-        private By _emailLocator = By.Id("username");
-        private By _passLocator = By.Id("password");
-        private By _buttonLogInSubmitLocator = By.CssSelector("#ui-id-3 > div > div.myonp.myonp-login > div.myonp-login-pane.log-in > form > div.control-group > div > button");
-        private By _buttonCreateMyAccountLocator = By.CssSelector("#ui-id-3 > div > div.myonp.myonp-login > div.myonp-login-pane.create-account > a > span");
-
-        private HtmlElement EmailElement;
-        private HtmlElement PassElement;
-        private HtmlElement ButtonLogInSubmitElement;
-        private HtmlElement ButtonCreateMyAccount;
-
-        public LoginPopUpPage()
-        {
-            EmailElement = new HtmlElement(_emailLocator);
-            PassElement = new HtmlElement(_passLocator);
-            ButtonLogInSubmitElement = new HtmlElement(_buttonLogInSubmitLocator);
-            ButtonCreateMyAccount = new HtmlElement(_buttonCreateMyAccountLocator);
-        }
+	public class LoginPopUpPage
+	{
+		private By _emailLocator = By.Id("username");
+		private By _passLocator = By.Id("password");
+		private By _linkForgotYourPasswordLocator = By.CssSelector("[href=\"/resetting/request\"]"); 
+		private By _buttonLogInSubmitLocator = By.CssSelector("#ui-id-3 > div > div.myonp.myonp-login > div.myonp-login-pane.log-in > form > div.control-group > div > button");
+		private By _buttonCreateMyAccountLocator = By.CssSelector("#ui-id-3 > div > div.myonp.myonp-login > div.myonp-login-pane.create-account > a > span");
+		private By _buttonCloseLocator = By.CssSelector("[title=\"close-login\"]");
+		private By _messageErrorLocator = By.CssSelector(".text-error");
+		private By _labelLocator = By.CssSelector("#ui-id-3 > div > div.myonp.myonp-login > div.myonp-login-pane.log-in > h1");
 
 
-        /// <summary>
-        /// The method fills the email field passed by the value
-        /// </summary>
-        /// <param name="email">Email value for filling</param> 
-        public void TypeEmail(String email)
-        {
-            EmailElement.SendKeys(email);
-        }
+		private HtmlElement EmailElement;
+		private HtmlElement PassElement;
+		private HtmlElement LinkForgotYourPasswordElement;
+		private HtmlElement ButtonLogInSubmitElement;
+		private HtmlElement ButtonCreateMyAccount;
+		private HtmlElement ButtonReturnElement;
+		private HtmlElement MessageErrorElement;
+		private HtmlElement LabelElement;
 
-        /// <summary>
-        /// The method fills the password field passed by the value
-        /// </summary>
-        /// <param name="pass">The pass value to fill</param>
-        public void TypePass(String pass)
-        {
-            PassElement.SendKeys(pass);
-        }
+		public LoginPopUpPage()
+		{
+			EmailElement = new HtmlElement(_emailLocator);
+			PassElement = new HtmlElement(_passLocator);
+			LinkForgotYourPasswordElement = new HtmlElement(_linkForgotYourPasswordLocator);
+			ButtonLogInSubmitElement = new HtmlElement(_buttonLogInSubmitLocator);
+			ButtonCreateMyAccount = new HtmlElement(_buttonCreateMyAccountLocator);
+			ButtonReturnElement = new HtmlElement(_buttonCloseLocator);
+			LabelElement = new HtmlElement(_labelLocator);
+		}
 
-        /// <summary>
-        /// Method press submit Login button
-        /// </summary>
-        public void ClickSubmit()
-        {
-            ButtonLogInSubmitElement.Click();
-        }
+		public void TypeEmail(String email)
+		{
+			EmailElement.SendKeys(email);
+		}
 
-        /// <summary>
-        /// Method, press a button that redirect the user to registration page
-        /// </summary>
-        public void ClickCreateMyAccount()
-        {
-            ButtonCreateMyAccount.Click();
-        }
-    }
+		public string GetEmail()
+		{
+			return EmailElement.Text;
+		}
+		public void TypePass(String pass)
+		{
+			PassElement.SendKeys(pass);
+		}
+
+		public string GetPass()
+		{
+			return PassElement.Text;
+		}
+
+		public void ClickLogIn()
+		{
+			ButtonLogInSubmitElement.Click();
+		}
+
+		public void ClickCreateMyAccount()
+		{
+			ButtonCreateMyAccount.Click();
+		}
+
+		public void ClickForgotYourPassword()
+		{
+			LinkForgotYourPasswordElement.Click();
+		}
+
+		public void ClickButtonReturn()
+		{
+			ButtonReturnElement.Click();
+		}
+
+		public string GetTextMessageError()
+		{
+			MessageErrorElement = new HtmlElement(_messageErrorLocator);
+			return MessageErrorElement.Text;
+		}
+
+		public string GetTextLabel()
+		{
+			return LabelElement.Text;
+		}
+	}
 }

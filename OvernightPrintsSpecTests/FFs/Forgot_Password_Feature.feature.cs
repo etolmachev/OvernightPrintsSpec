@@ -70,8 +70,6 @@ namespace OvernightPrintsSpecTests.FFs
         [NUnit.Framework.CategoryAttribute("mytag")]
         [NUnit.Framework.TestCaseAttribute("invalid@tr.su", null)]
         [NUnit.Framework.TestCaseAttribute("afd@tr.su", null)]
-        [NUnit.Framework.TestCaseAttribute("", null)]
-        [NUnit.Framework.TestCaseAttribute("gbgfgdf", null)]
         public virtual void SuccessfullyResetPassword(string email, string[] exampleTags)
         {
             string[] @__tags = new string[] {
@@ -196,9 +194,11 @@ this.ScenarioSetup(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Failure Reset Password with Invalid Credentials")]
-        public virtual void FailureResetPasswordWithInvalidCredentials()
+        [NUnit.Framework.TestCaseAttribute("", "Please fill out this field.", null)]
+        [NUnit.Framework.TestCaseAttribute("gbgfgdf", "Please include an \'@\' in the email address.", null)]
+        public virtual void FailureResetPasswordWithInvalidCredentials(string email, string messageChrome, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Failure Reset Password with Invalid Credentials", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Failure Reset Password with Invalid Credentials", exampleTags);
 #line 61
 this.ScenarioSetup(scenarioInfo);
 #line 62
@@ -217,13 +217,20 @@ this.ScenarioSetup(scenarioInfo);
                         "Value"});
             table6.AddRow(new string[] {
                         "Email Address",
-                        "<email>"});
+                        string.Format("{0}", email)});
 #line 68
  testRunner.When("I set following parameters on Reset Password popup", ((string)(null)), table6, "When ");
 #line 71
  testRunner.And("I click Cancel Button on Reset Password popup", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Field",
+                        "Value"});
+            table7.AddRow(new string[] {
+                        "Message",
+                        string.Format("{0}", messageChrome)});
 #line 72
- testRunner.Then("I see Reset Password popup", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I see an error message on Reset Password popup with", ((string)(null)), table7, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

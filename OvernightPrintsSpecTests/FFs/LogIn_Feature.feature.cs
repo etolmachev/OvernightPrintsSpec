@@ -113,7 +113,7 @@ this.ScenarioSetup(scenarioInfo);
                         "Message",
                         "The login and/or the password does not match our records. Please try again."});
 #line 17
- testRunner.Then("I see an error message with", ((string)(null)), table2, "Then ");
+ testRunner.Then("I see an error message on the Login popup with", ((string)(null)), table2, "Then ");
 #line 20
  testRunner.And("I see that user is not logged in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden

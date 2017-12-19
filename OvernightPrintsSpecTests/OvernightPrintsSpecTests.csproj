@@ -91,12 +91,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>LogIn_Feature.feature</DependentUpon>
     </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="FFs\SampleTest.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SampleTest.feature</DependentUpon>
     </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OvernightPrintsSpecBindings\OvernightPrintsSpecBindings.csproj">

@@ -1,47 +1,58 @@
-﻿    using System;
+﻿using System;
 using OpenQA.Selenium;
+using static OvernightPrintsSpecBindings.Utils.Utils;
 
 namespace OvernightPrintsSpecBindings.TestBase.Pages
 {
-    public class ResetPasswordPopUpPage
-    {
-        private By _emailLocator = By.Id("username");
-        private By _buttonResetPasswordLocator = By.CssSelector("[value=\"Reset Password\"]");
-        private By _linkCancelLocator = By.CssSelector("#myonp-reset-pwd > form > div:nth-child(2) > div > a");
-        private By _labelLocator = By.CssSelector("#ui-id-3 > div > div > h1");
+	public class ResetPasswordPopUpPage
+	{
+		private By _emailLocator = By.Id("username");
+		private By _buttonResetPasswordLocator = By.CssSelector("[value=\"Reset Password\"]");
+		private By _linkCancelLocator = By.CssSelector("#myonp-reset-pwd > form > div:nth-child(2) > div > a");
+		private By _labelLocator = By.CssSelector("#ui-id-3 > div > div > h1");
 
-        private HtmlElement EmailElement;
-        private HtmlElement ButtonResetPasswordElement;
-        private HtmlElement LinkCancelElement;
-        private HtmlElement LabelElement;
+		private HtmlElement EmailElement;
+		private HtmlElement ButtonResetPasswordElement;
+		private HtmlElement LinkCancelElement;
+		private HtmlElement LabelElement;
 
-        public ResetPasswordPopUpPage()
-        {
-            EmailElement = new HtmlElement(_emailLocator);
-            ButtonResetPasswordElement = new HtmlElement(_buttonResetPasswordLocator);
-            LinkCancelElement = new HtmlElement(_linkCancelLocator);
-            LabelElement = new HtmlElement(_labelLocator);
-        }
-
-        public void TypeEmail(String email)
+		public ResetPasswordPopUpPage()
 		{
-			EmailElement.SendKeys(email);
-			Console.WriteLine(EmailElement.GetAttribute("validity"));
+			EmailElement = new HtmlElement(_emailLocator);
+			ButtonResetPasswordElement = new HtmlElement(_buttonResetPasswordLocator);
+			LinkCancelElement = new HtmlElement(_linkCancelLocator);
+			LabelElement = new HtmlElement(_labelLocator);
 		}
 
-        public void ClickResetPassword()
-        {
-            ButtonResetPasswordElement.Click();
-        }
+		public void TypeEmail(String email)
+		{
+			EmailElement.SendKeys(email);
+		}
 
-        public void ClickCancel()
-        {
-            LinkCancelElement.Click();
-        }
+		public void ClickResetPassword()
+		{
+			ButtonResetPasswordElement.Click();
+		}
 
-        public string GetLabelText()
-        {
-            return LabelElement.Text;
-        }
-    }
+		public void ClickCancel()
+		{
+			LinkCancelElement.Click();
+		}
+
+		public string GetLabelText()
+		{
+			return LabelElement.Text;
+		}
+
+		public string GetStatusField()
+		{
+			string isValueMissingScript = "return document.getElementById(\"username\").validity.valueMissing";
+			bool valueMissing = (bool)ExecuteJavaScript(Browser.Driver, isValueMissingScript);
+
+			string textValueMissingMessage = "return document.getElementById(\"username\").attributes[0].ownerElement.validationMessage";
+			string valueMissingMessage = (string)ExecuteJavaScript(Browser.Driver, textValueMissingMessage);
+
+			return valueMissingMessage;
+		}
+	}
 }

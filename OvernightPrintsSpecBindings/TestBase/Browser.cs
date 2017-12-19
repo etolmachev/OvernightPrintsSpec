@@ -3,6 +3,7 @@ using System.Threading;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using static OvernightPrintsSpecBindings.Utils.Utils;
 
 namespace OvernightPrintsSpecBindings.TestBase
 {
@@ -44,19 +45,12 @@ namespace OvernightPrintsSpecBindings.TestBase
 		{
 			try
 			{
-				return (bool)ExecuteJavaScript("return document.readyState == 'complete'");
+				return (bool)ExecuteJavaScript(Driver,"return document.readyState == 'complete'");
 			}
 			catch (InvalidOperationException)
 			{
 				return false;
 			}
-		}
-
-		private static object ExecuteJavaScript(string javaScript, params object[] args)
-		{
-			var javaScriptExecutor = (IJavaScriptExecutor)Driver;
-
-			return javaScriptExecutor.ExecuteScript(javaScript, args);
 		}
 	}
 }
