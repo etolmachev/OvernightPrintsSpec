@@ -1,48 +1,48 @@
 ﻿Feature: Forgot_Password_Feature
-	In order to access page Forgot Password
-	As a user of the website
-	I want to reset my password
+	In order to be able to reset my password
+	As a user
+	I want to have Forgot Password page
 
-@mytag
+
 Scenario Template: Successfully Reset Password 
-	Given I open browser
+	When I open browser
 	And I navigate to url "https://www.overnightprints.com"
 	When I click Log in button on Main Page
-	And I click Forgot you password on Login popup
+	And I click Forgot you password button on Login popup
 	Then I see Reset Password popup
 
 	When I set following parameters on Reset Password popup
 		| Field         | Value      |
 		| Email Address | <email>    |
-	And I click Reset Password Button on Reset Password popup
-	Then I see notification message about successful reset password
+	And I click Reset Password button on Reset Password popup
+	Then I see notification message "An email has been sent. It contains a link you must click to reset your password." on the "Reset Password"
 
 	When I click Log in button on Main Page
 	And I set following parameters on Login popup
 		| Field         | Value     |
-		| Email Address | afd@tr.su |
-		| Password      | 12f3456   |
+		| Email Address | autestomation@gmail.com |
+		| Password      | 4sep98MPcalifUSA   |
 	And I click Log in button on Login popup
 	Then I see element My Account on the Main page
-	And I see that user is logged in
+	And I see that user "Test" is logged in
 
 	Examples: 
 		| email         |
 		| invalid@tr.su |
-		| afd@tr.su     |
+		| autestomation@gmail.com     |
 
 
-Scenario: Verification Cancel Button
-	Given I open browser
+Scenario: Verification of Cancel button
+	When I open browser
 	And I navigate to url "https://www.overnightprints.com"
 	When I click Log in button on Main Page
-	And I click Forgot you password on Login popup
+	And I click Forgot you password button on Login popup
 	Then I see Reset Password popup
 
 	When I set following parameters on Reset Password popup
-		| Field         | Value     |
-		| Email Address | afd@tr.su |
-	And I click Cancel Button on Reset Password popup
+		| Field         | Value                   |
+		| Email Address | autestomation@gmail.com |
+	And I click Replace password button on Reset Password popup
 	Then I see Login popup 
 	And I see following information on Login popup
 		| Field         | Value |
@@ -50,28 +50,27 @@ Scenario: Verification Cancel Button
 		| Password      |       |
 
 	When I set following parameters on Login popup
-		| Field         | Value     |
-		| Email Address | afd@tr.su |
-		| Password      | 12f3456   |
+		| Field         | Value                   |
+		| Email Address | autestomation@gmail.com |
+		| Password      | 4sep98MPcalifUSA        |
 	And I click Log in button on Login popup
 	Then I see element My Account on the Main page
-	And I see that user is logged in
+	And I see that user "Test" is logged in
 
 
-Scenario Template: Failure Reset Password with Invalid Credentials
-	Given I open browser
+Scenario Template: Try to Reset Password with Invalid Credentials
+	When I open browser
 	And I navigate to url "https://www.overnightprints.com"
 	When I click Log in button on Main Page
-	And I click Forgot you password on Login popup
+	And I click Forgot you password button on Login popup
 	Then I see Reset Password popup
 
 	When I set following parameters on Reset Password popup
 	| Field         | Value   |
 	| Email Address | <email> |
-	And I click Cancel Button on Reset Password popup
-	Then I see an error message on Reset Password popup with
-		| Field   | Value           |
-		| Message | <messageChrome> |
+	And I click Replace password button on Reset Password popup
+	
+	Then I see notification message "<messageChrome>" on the "Reset Password popup"
 
 	Examples:
 		| email   | messageChrome                               |

@@ -38,48 +38,24 @@ namespace OvernightPrintsSpecBindings.Bindings
 			}
 		}
 
-		[When(@"I click Reset Password Button on Reset Password popup")]
-		public void WhenIClickResetPasswordButtonOnResetPasswordPopup()
+		[When(@"I click (Reset Password|Replace password) button on Reset Password popup")]
+		public void WhenIClickButtonOnResetPasswordPopup(string buttonName)
 		{
-			_resetPasswordPopUp.ClickResetPassword();
-		}
-
-		[Then(@"I see notification message about successful reset password")]
-		public void ThenISeeNotificationMessageAboutSuccessfulResetPassword()
-		{
-			HtmlElement labelElement = new HtmlElement(By.CssSelector("#body-main > div > div > div.myonp.myonp-container.myonp-container-reset.header-align > h4"));
-			Assert.AreEqual("An email has been sent. It contains a link you must click to reset your password.", labelElement.Text);
-		}
-
-		[When(@"I click Cancel Button on Reset Password popup")]
-		public void WhenIClickCancelButtonOnResetPasswordPopup()
-		{
-			_resetPasswordPopUp.ClickCancel();
-		}
-
-		[Then(@"I see  status fill field")]
-		public void ThenICheckStatusFillField()
-		{
-			Console.WriteLine(_resetPasswordPopUp.GetStatusField());
-		}
-
-		[Then(@"I see an error message on Reset Password popup with")]
-		public void ThenISeeAnErrorMessageOnResetPasswordPopupWith(Table table)
-		{
-			foreach (var row in table.Rows)
+			switch (buttonName)
 			{
-				string key = row["Field"];
+				case "Reset Password":
+					_resetPasswordPopUp.ClickResetPassword();
+					break;
 
-				switch (key)
-				{
-					case "Message":
-						Assert.That(_resetPasswordPopUp.GetStatusField().Contains(row["Value"]), Is.True);
-						break;
+				case "Replace password":
+					_resetPasswordPopUp.ClickCancel();
+					break;
 
-					default:
-						throw new NotImplementedException();
-				}
+				default:
+					throw new NotImplementedException();
 			}
 		}
+
+
 	}
 }

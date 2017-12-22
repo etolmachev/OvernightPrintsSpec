@@ -32,8 +32,8 @@ namespace OvernightPrintsSpecTests.FFs
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Forgot_Password_Feature", "In order to access page Forgot Password\r\nAs a user of the website\r\nI want to rese" +
-                    "t my password", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Forgot_Password_Feature", "In order to be able to reset my password\r\nAs a user\r\nI want to have Forgot Passwo" +
+                    "rd page", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -67,28 +67,21 @@ namespace OvernightPrintsSpecTests.FFs
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Successfully Reset Password")]
-        [NUnit.Framework.CategoryAttribute("mytag")]
         [NUnit.Framework.TestCaseAttribute("invalid@tr.su", null)]
-        [NUnit.Framework.TestCaseAttribute("afd@tr.su", null)]
+        [NUnit.Framework.TestCaseAttribute("autestomation@gmail.com", null)]
         public virtual void SuccessfullyResetPassword(string email, string[] exampleTags)
         {
-            string[] @__tags = new string[] {
-                    "mytag"};
-            if ((exampleTags != null))
-            {
-                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
-            }
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Successfully Reset Password", @__tags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Successfully Reset Password", exampleTags);
 #line 7
 this.ScenarioSetup(scenarioInfo);
 #line 8
- testRunner.Given("I open browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.When("I open browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 9
  testRunner.And("I navigate to url \"https://www.overnightprints.com\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 10
  testRunner.When("I click Log in button on Main Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 11
- testRunner.And("I click Forgot you password on Login popup", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I click Forgot you password button on Login popup", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 12
  testRunner.Then("I see Reset Password popup", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -101,9 +94,10 @@ this.ScenarioSetup(scenarioInfo);
 #line 14
  testRunner.When("I set following parameters on Reset Password popup", ((string)(null)), table1, "When ");
 #line 17
- testRunner.And("I click Reset Password Button on Reset Password popup", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I click Reset Password button on Reset Password popup", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 18
- testRunner.Then("I see notification message about successful reset password", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I see notification message \"An email has been sent. It contains a link you must c" +
+                    "lick to reset your password.\" on the \"Reset Password\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 20
  testRunner.When("I click Log in button on Main Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
@@ -112,10 +106,10 @@ this.ScenarioSetup(scenarioInfo);
                         "Value"});
             table2.AddRow(new string[] {
                         "Email Address",
-                        "afd@tr.su"});
+                        "autestomation@gmail.com"});
             table2.AddRow(new string[] {
                         "Password",
-                        "12f3456"});
+                        "4sep98MPcalifUSA"});
 #line 21
  testRunner.And("I set following parameters on Login popup", ((string)(null)), table2, "And ");
 #line 25
@@ -123,26 +117,26 @@ this.ScenarioSetup(scenarioInfo);
 #line 26
  testRunner.Then("I see element My Account on the Main page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 27
- testRunner.And("I see that user is logged in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I see that user \"Test\" is logged in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Verification Cancel Button")]
-        public virtual void VerificationCancelButton()
+        [NUnit.Framework.DescriptionAttribute("Verification of Cancel button")]
+        public virtual void VerificationOfCancelButton()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verification Cancel Button", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verification of Cancel button", ((string[])(null)));
 #line 35
 this.ScenarioSetup(scenarioInfo);
 #line 36
- testRunner.Given("I open browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.When("I open browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 37
  testRunner.And("I navigate to url \"https://www.overnightprints.com\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 38
  testRunner.When("I click Log in button on Main Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 39
- testRunner.And("I click Forgot you password on Login popup", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I click Forgot you password button on Login popup", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 40
  testRunner.Then("I see Reset Password popup", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -151,11 +145,11 @@ this.ScenarioSetup(scenarioInfo);
                         "Value"});
             table3.AddRow(new string[] {
                         "Email Address",
-                        "afd@tr.su"});
+                        "autestomation@gmail.com"});
 #line 42
  testRunner.When("I set following parameters on Reset Password popup", ((string)(null)), table3, "When ");
 #line 45
- testRunner.And("I click Cancel Button on Reset Password popup", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I click Replace password button on Reset Password popup", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 46
  testRunner.Then("I see Login popup", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -176,10 +170,10 @@ this.ScenarioSetup(scenarioInfo);
                         "Value"});
             table5.AddRow(new string[] {
                         "Email Address",
-                        "afd@tr.su"});
+                        "autestomation@gmail.com"});
             table5.AddRow(new string[] {
                         "Password",
-                        "12f3456"});
+                        "4sep98MPcalifUSA"});
 #line 52
  testRunner.When("I set following parameters on Login popup", ((string)(null)), table5, "When ");
 #line 56
@@ -187,28 +181,28 @@ this.ScenarioSetup(scenarioInfo);
 #line 57
  testRunner.Then("I see element My Account on the Main page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 58
- testRunner.And("I see that user is logged in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I see that user \"Test\" is logged in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Failure Reset Password with Invalid Credentials")]
+        [NUnit.Framework.DescriptionAttribute("Try to Reset Password with Invalid Credentials")]
         [NUnit.Framework.TestCaseAttribute("", "Please fill out this field.", null)]
         [NUnit.Framework.TestCaseAttribute("gbgfgdf", "Please include an \'@\' in the email address.", null)]
-        public virtual void FailureResetPasswordWithInvalidCredentials(string email, string messageChrome, string[] exampleTags)
+        public virtual void TryToResetPasswordWithInvalidCredentials(string email, string messageChrome, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Failure Reset Password with Invalid Credentials", exampleTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Try to Reset Password with Invalid Credentials", exampleTags);
 #line 61
 this.ScenarioSetup(scenarioInfo);
 #line 62
- testRunner.Given("I open browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.When("I open browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 63
  testRunner.And("I navigate to url \"https://www.overnightprints.com\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 64
  testRunner.When("I click Log in button on Main Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 65
- testRunner.And("I click Forgot you password on Login popup", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I click Forgot you password button on Login popup", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 66
  testRunner.Then("I see Reset Password popup", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -221,16 +215,9 @@ this.ScenarioSetup(scenarioInfo);
 #line 68
  testRunner.When("I set following parameters on Reset Password popup", ((string)(null)), table6, "When ");
 #line 71
- testRunner.And("I click Cancel Button on Reset Password popup", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-            TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Field",
-                        "Value"});
-            table7.AddRow(new string[] {
-                        "Message",
-                        string.Format("{0}", messageChrome)});
-#line 72
- testRunner.Then("I see an error message on Reset Password popup with", ((string)(null)), table7, "Then ");
+ testRunner.And("I click Replace password button on Reset Password popup", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 73
+ testRunner.Then(string.Format("I see notification message \"{0}\" on the \"Reset Password popup\"", messageChrome), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

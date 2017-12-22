@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Threading;
+using NUnit.Framework;
+using OpenQA.Selenium;
 using OvernightPrintsSpecBindings.TestBase;
+using OvernightPrintsSpecBindings.TestBase.Pages;
 using TechTalk.SpecFlow;
 
 namespace OvernightPrintsSpecBindings.Bindings
@@ -8,7 +11,7 @@ namespace OvernightPrintsSpecBindings.Bindings
 	[Binding]
 	public class CommonBindings
 	{
-		[Given(@"I open browser")]
+		[When(@"I open browser")]
 		public void IOpenBrowser()
 		{
 			if (!Browser.IsInitialized)
@@ -18,7 +21,7 @@ namespace OvernightPrintsSpecBindings.Bindings
 			}
 		}
 
-		[Given(@"I navigate to url ""(.*)""")]
+		[When(@"I navigate to url ""(.*)""")]
 		public void GivenNavigateToUrl(string url)
 		{
 			Browser.Driver.Navigate().GoToUrl(url);
@@ -29,5 +32,33 @@ namespace OvernightPrintsSpecBindings.Bindings
 		{
 			Thread.Sleep(TimeSpan.FromSeconds(seconds));
 		}
+
+		[Then(@"I see notification message ""(.*)"" on the ""(.*)""")]
+		public void ThenISeeNotificationMessageOnThe(string expectedMessage, string page)
+		{
+
+			string currentMessage = string.Empty;
+
+			switch (page)
+			{
+				case "Login popup":
+					currentMessage = new LoginPopUpPage().GetTextMessageError();
+					break;
+
+				case "Reset Password":
+					currentMessage = new HtmlElement(By.CssSelector("h4")).Text;
+					break;
+
+				case "Reset Password popup":
+					currentMessage = new ResetPasswordPopUpPage().GetStatusField();
+					break;
+
+				default:
+					throw new NotImplementedException();
+			}
+			
+			Assert.That(currentMessage.Contains(expectedMessage), Is.True);
+		}
+
 	}
 }

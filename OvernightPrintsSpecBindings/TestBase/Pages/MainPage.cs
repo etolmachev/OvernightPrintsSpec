@@ -10,8 +10,8 @@ namespace OvernightPrintsSpecBindings.TestBase.Pages
 	public class MainPage
 	{
 		private By _buttonLogInLocator = By.CssSelector("a[href='/login']");
-		private By _myAccountLocator = By.CssSelector("#my-account > span");
-		private By _userNameLocator = By.CssSelector("#header > div.settings > div.account-and-cart > div > div.user-name");
+		private By _myAccountLocator = By.CssSelector(".my-account-text");
+		private By _userNameLocator = By.CssSelector(".user-name");
 
 		private HtmlElement ButtonLogInElement;
 		private HtmlElement MyAccountElement;
@@ -33,14 +33,14 @@ namespace OvernightPrintsSpecBindings.TestBase.Pages
 			return MyAccountElement.Text;
 		}
 
-		public bool IsExistUserName()
+		public string GetUserName()
 		{
-			bool result = false;
+			string result = String.Empty;
 
 			try
 			{
 				UserNameElement = new HtmlElement(_userNameLocator);
-				result = UserNameElement.Displayed;
+				result = UserNameElement.Text;
 			}
 			catch (NoSuchElementException ex)
 			{}

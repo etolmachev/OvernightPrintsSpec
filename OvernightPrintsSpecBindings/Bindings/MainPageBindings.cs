@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System;
+using NUnit.Framework;
 using OvernightPrintsSpecBindings.TestBase;
 using OvernightPrintsSpecBindings.TestBase.Pages;
 using TechTalk.SpecFlow;
@@ -26,13 +27,13 @@ namespace OvernightPrintsSpecBindings.Bindings
 		[Then(@"I see that user is not logged in")]
 		public void ThenISeeThatUserIsNotLoggedIn()
 		{
-			Assert.AreEqual(false,_mainPage.IsExistUserName());
+			Assert.AreEqual(string.Empty,_mainPage.GetUserName());
 		}
 
-		[Then(@"I see that user is logged in")]
-		public void ThenISeeThatUserIsLoggedIn()
+		[Then(@"I see that user ""(.*)"" is logged in")]
+		public void ThenISeeThatUserIsLoggedIn(string expectedUserName)
 		{
-			Assert.AreEqual(true, _mainPage.IsExistUserName());
+			Assert.That(_mainPage.GetUserName().Contains(expectedUserName), Is.True);
 		}
 
 		[Then(@"I see Main page")]

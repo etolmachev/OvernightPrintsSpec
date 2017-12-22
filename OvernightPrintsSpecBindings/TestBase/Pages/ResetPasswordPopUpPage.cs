@@ -8,8 +8,8 @@ namespace OvernightPrintsSpecBindings.TestBase.Pages
 	{
 		private By _emailLocator = By.Id("username");
 		private By _buttonResetPasswordLocator = By.CssSelector("[value=\"Reset Password\"]");
-		private By _linkCancelLocator = By.CssSelector("#myonp-reset-pwd > form > div:nth-child(2) > div > a");
-		private By _labelLocator = By.CssSelector("#ui-id-3 > div > div > h1");
+		private By _linkCancelLocator = By.CssSelector(".embedded-content-link, .cancel");
+		private By _labelLocator = By.CssSelector(".myonp-container-reset .header-align");
 
 		private HtmlElement EmailElement;
 		private HtmlElement ButtonResetPasswordElement;
@@ -41,18 +41,17 @@ namespace OvernightPrintsSpecBindings.TestBase.Pages
 
 		public string GetLabelText()
 		{
+			LabelElement.WaitElementAppears(40);
 			return LabelElement.Text;
 		}
 
 		public string GetStatusField()
 		{
-			string isValueMissingScript = "return document.getElementById(\"username\").validity.valueMissing";
-			bool valueMissing = (bool)ExecuteJavaScript(Browser.Driver, isValueMissingScript);
 
-			string textValueMissingMessage = "return document.getElementById(\"username\").attributes[0].ownerElement.validationMessage";
-			string valueMissingMessage = (string)ExecuteJavaScript(Browser.Driver, textValueMissingMessage);
+			string textValueMessage = "return document.getElementById(\"username\").attributes[0].ownerElement.validationMessage";
+			string valueMessage = (string)ExecuteJavaScript(Browser.Driver, textValueMessage);
 
-			return valueMissingMessage;
+			return valueMessage;
 		}
 	}
 }

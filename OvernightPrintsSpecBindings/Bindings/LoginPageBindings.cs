@@ -12,19 +12,28 @@ namespace OvernightPrintsSpecBindings.Bindings
 	{
 		LoginPopUpPage _popUpPage = new LoginPopUpPage();
 
-		[When(@"I click Log in button on Login popup")]
-		public void WhenIClickLogInButton()
+		[When(@"I click (Forgot you password|Log in|X|Create My Account) button on Login popup")]
+		public void WhenIClickButtonOnLoginPopup(string buttonName)
 		{
-			_popUpPage.ClickLogIn();
-		}
+			switch (buttonName)
+			{
+				case "Forgot you password":
+					_popUpPage.ClickForgotYourPassword();
+					break;
+				case "Log in":
+					_popUpPage.ClickLogIn();
+					break;
+				case "X":
+					_popUpPage.ClickButtonReturn();
+					break;
 
-		[Then(@"I see displayed link MY ACCOUNT")]
-		public void WhenISeeDisplayedLinkMyAccount()
-		{
-			HtmlElement linkElement = new HtmlElement(By.CssSelector("#my-account > span"));
-			linkElement.WaitElementAppears(5);
-			String textLink = linkElement.Text;
-			Assert.AreEqual(textLink, "MY ACCOUNT");
+				case "Create My Account":
+					_popUpPage.ClickCreateMyAccount();
+					break;
+
+				default:
+					throw new NotImplementedException();
+			}
 		}
 
 		[When(@"I set following parameters on Login popup")]
@@ -50,31 +59,6 @@ namespace OvernightPrintsSpecBindings.Bindings
             }
         }
 
-		[Then(@"I see an error message on the Login popup with")]
-		public void ThenISeeAnErrorMessageWith(Table table)
-		{
-			foreach (var row in table.Rows)
-			{
-				string key = row["Field"];
-
-				switch (key)
-				{
-					case "Message":
-						Assert.AreEqual(row["Value"], _popUpPage.GetTextMessageError());
-						break;
-
-					default:
-						throw new NotImplementedException();
-				}
-			}
-		}
-
-		[When(@"I click Return button on Login popup")]
-		public void WhenIClickReturnButtonOnLoginPopup()
-		{
-			_popUpPage.ClickButtonReturn();
-		}
-
 		[When(@"I set email ""(.*)"" on Login popup")]
 		public void WhenISetEmailOnLoginPopup(string email)
 		{
@@ -85,12 +69,6 @@ namespace OvernightPrintsSpecBindings.Bindings
 		public void WhenISetPasswordOnLoginPopup(string password)
 		{
 			_popUpPage.TypePass(password);
-		}
-
-		[When(@"I click Forgot you password on Login popup")]
-		public void WhenIClickForgotYouPasswordOnLoginPopup()
-		{
-			_popUpPage.ClickForgotYourPassword();
 		}
 
 		[Then(@"I see following information on Login popup")]
@@ -119,7 +97,7 @@ namespace OvernightPrintsSpecBindings.Bindings
 		[Then(@"I see Login popup")]
 		public void ThenISeeLoginPopup()
 		{
-			Assert.AreEqual("LOG IN",_popUpPage.GetTextLabel());
+			Assert.AreEqual("Log In".ToLower(), _popUpPage.GetTextLabel().ToLower());
 		}
 	}
 }

@@ -1,11 +1,11 @@
 ﻿Feature: LogIn_Feature
-	In order to access my account on the website https://www.overnightprints.com
-	As a user of the website
-	I want to log into the website
+	In order to have a secure access to my account
+	As a user
+	I want to have 'Log In' feature
+	So that I can log into the website using my credentials
 
-@mytag
-Scenario Template: Failure Login With Invalid Credentials
-	Given I open browser
+Scenario Template: Log In with Invalid Credentials
+	When I open browser
 	And I navigate to url "https://www.overnightprints.com"
 	When I click Log in button on Main Page
 	And I set following parameters on Login popup
@@ -14,61 +14,51 @@ Scenario Template: Failure Login With Invalid Credentials
 		| Password      | <password> |
 	And I click Log in button on Login popup
 
-	Then I see an error message on the Login popup with
-		| Field   | Value                                                                       |
-		| Message | The login and/or the password does not match our records. Please try again. |
+	Then I see notification message "The login and/or the password does not match our records. Please try again." on the "Login popup"
 	And I see that user is not logged in
 
 	Examples: 
 		| email                       | password                    |
 		|                             |                             |
 		| invalid@tr.su               | invalid                     |
-		| afd@tr.su                   | invalid                     |
-		| afd@tr.su                   |                             |
-		| <script>alert(123)</script> | 12f3456                     |
-		| afd@tr.su                   | <script>alert(123)</script> |  
+		| autestomation@gmail.com     | invalid                     |
+		| autestomation@gmail.com     |                             |
+		| <script>alert(123)</script> | 4sep98MPcalifUSA            |
+		| autestomation@gmail.com     | <script>alert(123)</script> |
 
 
 Scenario: Successfully Login With Valid Credentials
-	Given I open browser
+	When I open browser
 	And I navigate to url "https://www.overnightprints.com"
 	When I click Log in button on Main Page
 	And I set following parameters on Login popup
-		| Field         | Value     |
-		| Email Address | afd@tr.su |
-		| Password      | 12f3456   |
+		| Field         | Value                   |
+		| Email Address | autestomation@gmail.com |
+		| Password      | 4sep98MPcalifUSA        |
 	And I click Log in button on Login popup
 	Then I see element My Account on the Main page
-	And I see that user is logged in
+	And I see that user "Test" is logged in
 
 
 Scenario: Successfully Login With Valid Email with spaces and Valid Password
-	Given I open browser
+	When I open browser
 	And I navigate to url "https://www.overnightprints.com"
 	When I click Log in button on Main Page
-	And I set email "   afd@tr.su" on Login popup
-	And I set password "12f3456" on Login popup
+	And I set email "   autestomation@gmail.com" on Login popup
+	And I set password "4sep98MPcalifUSA" on Login popup
 	And I click Log in button on Login popup
 	Then I see element My Account on the Main page
-	And I see that user is logged in
+	And I see that user "Test" is logged in
 
-Scenario: Redirect to page Reset Password
-	Given I open browser
-	And I navigate to url "https://www.overnightprints.com"
-	When I click Log in button on Main Page
-	And I click Forgot you password on Login popup 
-	Then I see Reset Password popup
-
-
-Scenario: Verification Return Button
-	Given I open browser
+Scenario: Verification of X Button
+	When I open browser
 	And I navigate to url "https://www.overnightprints.com"
 	When I click Log in button on Main Page
 	And I set following parameters on Login popup
-		| Field         | Value     |
-		| Email Address | afd@tr.su |
-		| Password      | 12f3456   |
-	And I click Return button on Login popup
+		| Field         | Value                   |
+		| Email Address | autestomation@gmail.com |
+		| Password      | 4sep98MPcalifUSA        |
+	And I click X button on Login popup
 	Then I see Main page
 
 	When I click Log in button on Main Page

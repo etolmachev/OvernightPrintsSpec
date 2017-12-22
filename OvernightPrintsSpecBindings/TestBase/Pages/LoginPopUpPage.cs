@@ -7,12 +7,12 @@ namespace OvernightPrintsSpecBindings.TestBase.Pages
 	{
 		private By _emailLocator = By.Id("username");
 		private By _passLocator = By.Id("password");
-		private By _linkForgotYourPasswordLocator = By.CssSelector("[href=\"/resetting/request\"]"); 
-		private By _buttonLogInSubmitLocator = By.CssSelector("#ui-id-3 > div > div.myonp.myonp-login > div.myonp-login-pane.log-in > form > div.control-group > div > button");
-		private By _buttonCreateMyAccountLocator = By.CssSelector("#ui-id-3 > div > div.myonp.myonp-login > div.myonp-login-pane.create-account > a > span");
+		private By _linkForgotYourPasswordLocator = By.CssSelector("a[href=\"/resetting/request\"]"); 
+		private By _buttonLogInSubmitLocator = By.CssSelector(".controls button");
+		private By _buttonCreateMyAccountLocator = By.CssSelector("a[href=\"/register/\"]");
 		private By _buttonCloseLocator = By.CssSelector("[title=\"close-login\"]");
 		private By _messageErrorLocator = By.CssSelector(".text-error");
-		private By _labelLocator = By.CssSelector("#ui-id-3 > div > div.myonp.myonp-login > div.myonp-login-pane.log-in > h1");
+		private By _labelLocator = By.CssSelector(".myonp-login-pane.log-in > h1");
 
 
 		private HtmlElement EmailElement;
@@ -31,7 +31,7 @@ namespace OvernightPrintsSpecBindings.TestBase.Pages
 			LinkForgotYourPasswordElement = new HtmlElement(_linkForgotYourPasswordLocator);
 			ButtonLogInSubmitElement = new HtmlElement(_buttonLogInSubmitLocator);
 			ButtonCreateMyAccount = new HtmlElement(_buttonCreateMyAccountLocator);
-			ButtonReturnElement = new HtmlElement(_buttonCloseLocator);
+			//ButtonReturnElement = new HtmlElement(_buttonCloseLocator);
 			LabelElement = new HtmlElement(_labelLocator);
 		}
 
@@ -71,7 +71,15 @@ namespace OvernightPrintsSpecBindings.TestBase.Pages
 
 		public void ClickButtonReturn()
 		{
-			ButtonReturnElement.Click();
+			try
+			{
+				ButtonReturnElement = new HtmlElement(_buttonCloseLocator);
+				ButtonReturnElement.Click();
+			}
+			catch (NoSuchElementException ex)
+			{
+				new HtmlElement(By.CssSelector("div .logo a[href='/']")).Click();
+			}
 		}
 
 		public string GetTextMessageError()
