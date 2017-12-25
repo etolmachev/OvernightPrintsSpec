@@ -24,6 +24,11 @@ namespace OvernightPrintsSpecBindings.TestBase.Pages
 			LabelElement = new HtmlElement(_labelLocator);
 		}
 
+		public string GetEmail()
+		{
+			return EmailElement.Text;
+		}
+
 		public void TypeEmail(String email)
 		{
 			EmailElement.SendKeys(email);

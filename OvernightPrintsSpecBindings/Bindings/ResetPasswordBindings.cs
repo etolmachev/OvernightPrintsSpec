@@ -38,7 +38,7 @@ namespace OvernightPrintsSpecBindings.Bindings
 			}
 		}
 
-		[When(@"I click (Reset Password|Replace password) button on Reset Password popup")]
+		[When(@"I click (Reset Password|Cancel) button on Reset Password popup")]
 		public void WhenIClickButtonOnResetPasswordPopup(string buttonName)
 		{
 			switch (buttonName)
@@ -47,13 +47,19 @@ namespace OvernightPrintsSpecBindings.Bindings
 					_resetPasswordPopUp.ClickResetPassword();
 					break;
 
-				case "Replace password":
+				case "Cancel":
 					_resetPasswordPopUp.ClickCancel();
 					break;
 
 				default:
 					throw new NotImplementedException();
 			}
+		}
+
+		[Then(@"I see following information email - ""(.*)"" on Reset Password popup")]
+		public void ThenISeeFollowingInformationEmail_OnResetPasswordPopup(string email)
+		{
+			Assert.AreEqual(email,_resetPasswordPopUp.GetEmail());
 		}
 
 

@@ -1,9 +1,8 @@
 ﻿using System;
 using NUnit.Framework;
-using OpenQA.Selenium;
-using OvernightPrintsSpecBindings.TestBase;
 using OvernightPrintsSpecBindings.TestBase.Pages;
 using TechTalk.SpecFlow;
+using static OvernightPrintsSpecBindings.Utils.Utils;
 
 namespace OvernightPrintsSpecBindings.Bindings
 {	
@@ -46,7 +45,7 @@ namespace OvernightPrintsSpecBindings.Bindings
                 switch (key)
                 {
                     case "Email Address":
-                        _popUpPage.TypeEmail(row["Value"]);
+                        _popUpPage.TypeEmail(ParseString(row["Value"]));
                         break;
 
                     case "Password":
@@ -59,18 +58,6 @@ namespace OvernightPrintsSpecBindings.Bindings
             }
         }
 
-		[When(@"I set email ""(.*)"" on Login popup")]
-		public void WhenISetEmailOnLoginPopup(string email)
-		{
-			_popUpPage.TypeEmail(email);
-		}
-
-		[When(@"I set password ""(.*)"" on Login popup")]
-		public void WhenISetPasswordOnLoginPopup(string password)
-		{
-			_popUpPage.TypePass(password);
-		}
-
 		[Then(@"I see following information on Login popup")]
 		public void ThenISeeFollowingInformationOnLoginPopup(Table table)
 		{
@@ -81,11 +68,11 @@ namespace OvernightPrintsSpecBindings.Bindings
 				switch (key)
 				{
 					case "Email Address":
-						Assert.AreEqual("",_popUpPage.GetEmail());
+						Assert.AreEqual(row["Value"],_popUpPage.GetEmail());
 						break;
 
 					case "Password":
-						Assert.AreEqual("", _popUpPage.GetPass());
+						Assert.AreEqual(row["Value"], _popUpPage.GetPass());
 						break;
 
 					default:

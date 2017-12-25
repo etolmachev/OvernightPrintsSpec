@@ -109,16 +109,18 @@ this.ScenarioSetup(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Successfully Login With Valid Credentials")]
-        public virtual void SuccessfullyLoginWithValidCredentials()
+        [NUnit.Framework.TestCaseAttribute("autestomation@gmail.com", "4sep98MPcalifUSA", null)]
+        [NUnit.Framework.TestCaseAttribute("\"   autestomation@gmail.com\"", "4sep98MPcalifUSA", null)]
+        public virtual void SuccessfullyLoginWithValidCredentials(string email, string password, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Successfully Login With Valid Credentials", ((string[])(null)));
-#line 30
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Successfully Login With Valid Credentials", exampleTags);
+#line 29
 this.ScenarioSetup(scenarioInfo);
-#line 31
+#line 30
  testRunner.When("I open browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 32
+#line 31
  testRunner.And("I navigate to url \"https://www.overnightprints.com\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 33
+#line 32
  testRunner.When("I click Log in button on Main Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
@@ -126,44 +128,17 @@ this.ScenarioSetup(scenarioInfo);
                         "Value"});
             table2.AddRow(new string[] {
                         "Email Address",
-                        "autestomation@gmail.com"});
+                        string.Format("{0}", email)});
             table2.AddRow(new string[] {
                         "Password",
-                        "4sep98MPcalifUSA"});
-#line 34
+                        string.Format("{0}", password)});
+#line 33
  testRunner.And("I set following parameters on Login popup", ((string)(null)), table2, "And ");
+#line 37
+ testRunner.And("I click Log in button on Login popup", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 38
- testRunner.And("I click Log in button on Login popup", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Then("I see element My Account on the Main page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 39
- testRunner.Then("I see element My Account on the Main page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 40
- testRunner.And("I see that user \"Test\" is logged in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Successfully Login With Valid Email with spaces and Valid Password")]
-        public virtual void SuccessfullyLoginWithValidEmailWithSpacesAndValidPassword()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Successfully Login With Valid Email with spaces and Valid Password", ((string[])(null)));
-#line 43
-this.ScenarioSetup(scenarioInfo);
-#line 44
- testRunner.When("I open browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 45
- testRunner.And("I navigate to url \"https://www.overnightprints.com\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 46
- testRunner.When("I click Log in button on Main Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 47
- testRunner.And("I set email \"   autestomation@gmail.com\" on Login popup", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 48
- testRunner.And("I set password \"4sep98MPcalifUSA\" on Login popup", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 49
- testRunner.And("I click Log in button on Login popup", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 50
- testRunner.Then("I see element My Account on the Main page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 51
  testRunner.And("I see that user \"Test\" is logged in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -174,13 +149,13 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void VerificationOfXButton()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verification of X Button", ((string[])(null)));
-#line 53
+#line 46
 this.ScenarioSetup(scenarioInfo);
-#line 54
+#line 47
  testRunner.When("I open browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 55
+#line 48
  testRunner.And("I navigate to url \"https://www.overnightprints.com\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 56
+#line 49
  testRunner.When("I click Log in button on Main Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
@@ -192,13 +167,13 @@ this.ScenarioSetup(scenarioInfo);
             table3.AddRow(new string[] {
                         "Password",
                         "4sep98MPcalifUSA"});
-#line 57
+#line 50
  testRunner.And("I set following parameters on Login popup", ((string)(null)), table3, "And ");
-#line 61
+#line 54
  testRunner.And("I click X button on Login popup", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 62
+#line 55
  testRunner.Then("I see Main page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 64
+#line 57
  testRunner.When("I click Log in button on Main Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
@@ -210,9 +185,9 @@ this.ScenarioSetup(scenarioInfo);
             table4.AddRow(new string[] {
                         "Password",
                         ""});
-#line 65
+#line 58
  testRunner.Then("I see following information on Login popup", ((string)(null)), table4, "Then ");
-#line 69
+#line 62
  testRunner.And("I see that user is not logged in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();

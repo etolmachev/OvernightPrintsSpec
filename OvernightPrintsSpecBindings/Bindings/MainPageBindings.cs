@@ -23,7 +23,6 @@ namespace OvernightPrintsSpecBindings.Bindings
 			Assert.AreEqual("My Account", _mainPage.GetTextMyAccount());
 		}
 
-
 		[Then(@"I see that user is not logged in")]
 		public void ThenISeeThatUserIsNotLoggedIn()
 		{
@@ -33,14 +32,21 @@ namespace OvernightPrintsSpecBindings.Bindings
 		[Then(@"I see that user ""(.*)"" is logged in")]
 		public void ThenISeeThatUserIsLoggedIn(string expectedUserName)
 		{
-			Assert.That(_mainPage.GetUserName().Contains(expectedUserName), Is.True);
+			Assert.AreEqual(expectedUserName,_mainPage.GetUserName());
 		}
 
 		[Then(@"I see Main page")]
 		public void ThenISeeMainPage()
 		{
-			string url = Browser.Driver.Url;
-			Assert.AreEqual("https://www.overnightprints.com/",url);
+			if (Browser.IsReadyState())
+			{
+				string url = Browser.Driver.Url;
+				Assert.AreEqual("https://www.overnightprints.com/", url);
+			}
+			else
+			{
+				Assert.Fail();
+			}
 		}
 	}
 }

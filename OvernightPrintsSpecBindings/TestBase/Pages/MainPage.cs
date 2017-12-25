@@ -41,6 +41,8 @@ namespace OvernightPrintsSpecBindings.TestBase.Pages
 			{
 				UserNameElement = new HtmlElement(_userNameLocator);
 				result = UserNameElement.Text;
+				string temp = result.Substring(result.IndexOf(",") + 2);
+				result = temp;
 			}
 			catch (NoSuchElementException ex)
 			{}

@@ -9,7 +9,9 @@ Scenario: Open Login Page and Click Sign In Button
 	And I navigate to url "https://www.overnightprints.com"
 
 	When I click Log in button on Main Page
-	And I set email "autestomation@gmail.com" on Login popup
-	And I set password "4sep98MPcalifUSA" on Login popup
+	And I set following parameters on Login popup
+		| Field         | Value                   |
+		| Email Address | autestomation@gmail.com |
+		| Password      | 4sep98MPcalifUSA        |
 	And I click Log in button on Login popup
 	Then I see element My Account on the Main page

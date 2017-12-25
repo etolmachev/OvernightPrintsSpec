@@ -56,8 +56,7 @@ namespace OvernightPrintsSpecBindings.Bindings
 				default:
 					throw new NotImplementedException();
 			}
-			
-			Assert.That(currentMessage.Contains(expectedMessage), Is.True);
+			Assert.AreEqual(expectedMessage, currentMessage);
 		}
 
 	}
