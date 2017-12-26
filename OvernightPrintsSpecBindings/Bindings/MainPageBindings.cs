@@ -38,7 +38,7 @@ namespace OvernightPrintsSpecBindings.Bindings
 		[Then(@"I see Main page")]
 		public void ThenISeeMainPage()
 		{
-			if (Browser.IsReadyState())
+			if (_mainPage.IsDisplayedIndividualElement())
 			{
 				string url = Browser.Driver.Url;
 				Assert.AreEqual("https://www.overnightprints.com/", url);
