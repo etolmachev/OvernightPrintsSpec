@@ -85,7 +85,9 @@
     <Compile Include="Bindings\CommonBindings.cs" />
     <Compile Include="Bindings\LoginPageBindings.cs" />
     <Compile Include="Bindings\MainPageBindings.cs" />
+    <Compile Include="Bindings\RegisterPageBindings.cs" />
     <Compile Include="Bindings\ResetPasswordBindings.cs" />
+    <Compile Include="Bindings\ResponseToCreateAccountBindings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestBase\Browser.cs" />
     <Compile Include="TestBase\Cleanup.cs" />
@@ -94,6 +96,7 @@
     <Compile Include="TestBase\Pages\MainPage.cs" />
     <Compile Include="TestBase\Pages\RegisterPopUpPage.cs" />
     <Compile Include="TestBase\Pages\ResetPasswordPopUpPage.cs" />
+    <Compile Include="TestBase\Pages\ResponseToCreateAccountPage.cs" />
     <Compile Include="Utils\Utils.cs" />
   </ItemGroup>
   <ItemGroup />

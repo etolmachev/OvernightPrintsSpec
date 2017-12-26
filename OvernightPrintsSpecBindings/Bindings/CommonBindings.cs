@@ -59,5 +59,13 @@ namespace OvernightPrintsSpecBindings.Bindings
 			Assert.AreEqual(expectedMessage, currentMessage);
 		}
 
+		[When(@"I remember ""(.*)"" as ""(.*)""")]
+		public void WhenIRememberAs(string value, string key)
+		{
+			string result = Utils.Utils.Resolve(value);
+			ScenarioContext.Current.Set(result,key);
+			Console.WriteLine(result);
+		}
+
 	}
 }

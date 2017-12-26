@@ -11,10 +11,20 @@ namespace OvernightPrintsSpecBindings.Bindings
 	{
 		MainPage _mainPage = new MainPage();
 
-		[When(@"I click Log in button on Main Page")]
-		public void WhenIClickLogInButton()
+		[When(@"I click (Log in|Log out) button on Main Page")]
+		public void WhenIClickLogInButton(string buttonName)
 		{
-			_mainPage.ClickLogIn();
+			switch (buttonName)
+			{
+				case "Log in":
+					_mainPage.ClickLogIn();
+					break;
+				case "Log out":
+					_mainPage.ClickLogout();
+					break;
+				default:
+					throw new NotImplementedException();
+			}
 		}
 
 		[Then(@"I see element My Account on the Main page")]
