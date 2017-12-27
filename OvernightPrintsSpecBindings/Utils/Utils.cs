@@ -8,7 +8,7 @@ namespace OvernightPrintsSpecBindings.Utils
 {
 	public class Utils
 	{
-		private static string vocabulary = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!$%^&?*-+={}";
+		//private static string vocabulary = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!$%^&?*-+={}";
 
 		public static object ExecuteJavaScript(IWebDriver Driver,string javaScript, params object[] args)
 		{
@@ -22,38 +22,53 @@ namespace OvernightPrintsSpecBindings.Utils
 			return input.Trim('"');
 		}
 
-		public static string Resolve(String email)
+		private static string vocabulary = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!$%^&?*-+={}";
+
+		private static string regexAll = "(?={{)(.*?)(?<=}})";
+		private static string regexLeft = "(?<={{)(.*?)(?=::)";
+		private static string regexRight = "(?<=::)(.*?)(?=}})";
+
+		private delegate string Function(string email);
+
+		private static Function[] functions = { new Function(rnd), new Function(context)};
+
+		public static string Resolve(string email)
 		{
-			string result = String.Empty;
-			string regex = "(?<={{)(.*?)(?=}})";
-			string match = Regex.Match(email, regex).ToString();
-
-			string key = match.Split("::".ToCharArray())[0];
-			string value = match.Split("::".ToCharArray())[2];
-
-			switch (key)
+			foreach (Match match in Regex.Matches(email, regexAll))
 			{
-				case "rnd":
-					result = Rnd(email, value);
-					break;
-				case "context":
-					result = Context(value);
-					break;
+				string resultFunction = MainMethodResolve(email);
+				email = resultFunction;
 			}
-			return  result;
+
+			return email;
 		}
 
-		private static string Rnd(string email, string placeholder)
+		private static string MainMethodResolve(string email)
+		{
+			string key = Regex.Match(email, regexLeft).ToString();
+			string result = String.Empty;
+
+			foreach (Function func in functions)
+			{
+				string methodName = func.Method.Name;
+				if (methodName.Equals(key))
+				{
+					result = func(email);
+					break;
+				}
+			}
+
+			return result;
+		}
+
+		private static string rnd(string placeholder)
 		{
 			string result = String.Empty;
-			string left = email.Substring(0, email.IndexOf("{{"));
-			string right = email.Substring(email.IndexOf("}}") + 2);
-
-			int n = 0;
-
+			string value = Regex.Match(placeholder, regexRight).ToString();
+			string temp = Regex.Match(placeholder, regexAll).ToString();
 			try
 			{
-				n = Int32.Parse(placeholder);
+				int n = Int32.Parse(value);
 				for (int i = 0; i < n; i++)
 				{
 					int tempRandom = new Random().Next(0, vocabulary.Length - 1);
@@ -62,15 +77,17 @@ namespace OvernightPrintsSpecBindings.Utils
 				}
 			}
 			catch (FormatException e)
-			{
-				return String.Empty;
-			}
+			{ }
 
-			return left + result + right;
+			string leftSide = placeholder.Substring(0, placeholder.IndexOf(temp));
+			string rightSide = placeholder.Substring(placeholder.IndexOf(temp) + temp.Length);
+
+			return leftSide + result + rightSide;
 		}
 
-		private static string Context(string key)
+		private static string context(string placeholder)
 		{
+			string key = Regex.Match(placeholder, regexRight).ToString();
 			return ScenarioContext.Current.Get<string>(key);
 		}
 	}

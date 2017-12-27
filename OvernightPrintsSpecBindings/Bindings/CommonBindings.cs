@@ -64,7 +64,6 @@ namespace OvernightPrintsSpecBindings.Bindings
 		{
 			string result = Utils.Utils.Resolve(value);
 			ScenarioContext.Current.Set(result,key);
-			Console.WriteLine(result);
 		}
 
 	}
