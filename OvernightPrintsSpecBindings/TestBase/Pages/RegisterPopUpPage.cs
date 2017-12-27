@@ -135,7 +135,7 @@ namespace OvernightPrintsSpecBindings.TestBase.Pages
 		public enum HelpBlocks
 		{
 			EmailHelpBlock,
-			PassHelpblock,
+			PassHelpBlock,
 			FirstNameHelpBlock,
 			LastNameHelpBlock
 		}
@@ -149,7 +149,7 @@ namespace OvernightPrintsSpecBindings.TestBase.Pages
 					EmailHelpBlock = new HtmlElement(_emailHelpBlockLocator);
 					result = EmailHelpBlock.Text;
 					break;
-				case HelpBlocks.PassHelpblock:
+				case HelpBlocks.PassHelpBlock:
 					PassHelpBlock = new HtmlElement(_passHelpBlockLocator);
 					result = PassHelpBlock.Text;
 					break;

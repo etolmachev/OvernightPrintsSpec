@@ -97,5 +97,40 @@ namespace OvernightPrintsSpecBindings.Bindings
 			Assert.AreEqual(expectedMessage,currentMessage);
 		}
 
+		[Then(@"I see following information on Register popup")]
+		public void ThenISeeFollowingInformationOnRegisterPopup(Table table)
+		{
+			foreach (var row in table.Rows)
+			{
+				string key = row["Field"];
+
+				switch (key)
+				{
+					case "Email Address":
+						Assert.AreEqual(row["Value"], _registerPopUpPage.GetField(Fields.Email));
+						break;
+
+					case "Password":
+						Assert.AreEqual(row["Value"], _registerPopUpPage.GetField(Fields.Pass));
+						break;
+
+					case "Repassword":
+						Assert.AreEqual(row["Value"], _registerPopUpPage.GetField(Fields.VerifyPass));
+						break;
+
+					case "First Name":
+						Assert.AreEqual(row["Value"], _registerPopUpPage.GetField(Fields.FirstName));
+						break;
+
+					case "Last Name":
+						Assert.AreEqual(row["Value"], _registerPopUpPage.GetField(Fields.LastName));
+						break;
+
+					default:
+						throw new NotImplementedException();
+				}
+			}
+		}
+
 	}
 }
