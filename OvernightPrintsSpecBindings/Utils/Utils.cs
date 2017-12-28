@@ -6,7 +6,7 @@ using TechTalk.SpecFlow;
 
 namespace OvernightPrintsSpecBindings.Utils
 {
-	public class Utils
+	public static class Utils
 	{
 		//private static string vocabulary = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!$%^&?*-+={}";
 

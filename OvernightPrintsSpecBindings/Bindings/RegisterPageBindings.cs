@@ -2,8 +2,6 @@
 using NUnit.Framework;
 using OvernightPrintsSpecBindings.TestBase.Pages;
 using TechTalk.SpecFlow;
-using static OvernightPrintsSpecBindings.TestBase.Pages.RegisterPopUpPage;
-using static OvernightPrintsSpecBindings.Utils.Utils;
 
 namespace OvernightPrintsSpecBindings.Bindings
 {	
@@ -28,20 +26,20 @@ namespace OvernightPrintsSpecBindings.Bindings
 				switch (key)
 				{
 					case "Email Address":
-						string value = ParseString(Resolve(row["Value"]));
-						_registerPopUpPage.TypeField(Fields.Email, value);
+						string value = Utils.Utils.ParseString(Utils.Utils.Resolve(row["Value"]));
+						_registerPopUpPage.TypeField(RegisterPopUpPage.Fields.Email, value);
 						break;
 					case "Password":
-						_registerPopUpPage.TypeField(Fields.Pass, ParseString(row["Value"]));
+						_registerPopUpPage.TypeField(RegisterPopUpPage.Fields.Pass, Utils.Utils.ParseString(row["Value"]));
 						break;
 					case "Repassword":
-						_registerPopUpPage.TypeField(Fields.VerifyPass, ParseString(row["Value"]));
+						_registerPopUpPage.TypeField(RegisterPopUpPage.Fields.VerifyPass, Utils.Utils.ParseString(row["Value"]));
 						break;
 					case "First Name":
-						_registerPopUpPage.TypeField(Fields.FirstName, ParseString(row["Value"]));
+						_registerPopUpPage.TypeField(RegisterPopUpPage.Fields.FirstName, Utils.Utils.ParseString(row["Value"]));
 						break;
 					case "Last Name":
-						_registerPopUpPage.TypeField(Fields.LastName, ParseString(row["Value"]));
+						_registerPopUpPage.TypeField(RegisterPopUpPage.Fields.LastName, Utils.Utils.ParseString(row["Value"]));
 						break;
 					default:
 						throw new NotImplementedException();
@@ -55,10 +53,10 @@ namespace OvernightPrintsSpecBindings.Bindings
 			switch (buttonName)
 			{
 				case "X":
-					_registerPopUpPage.ClickButton(Buttons.X);
+					_registerPopUpPage.ClickButton(RegisterPopUpPage.Buttons.X);
 					break;
 				case "Create My Account":
-					_registerPopUpPage.ClickButton(Buttons.CreateAccount);
+					_registerPopUpPage.ClickButton(RegisterPopUpPage.Buttons.CreateAccount);
 					break;
 				default:
 					throw new NotImplementedException();
@@ -72,7 +70,7 @@ namespace OvernightPrintsSpecBindings.Bindings
 			if (placeElement.Contains("HelpBlock"))
 			{
 				Console.WriteLine("HelpBlock" + placeElement);
-				foreach (HelpBlocks helpBlock in Enum.GetValues(typeof(HelpBlocks)))
+				foreach (RegisterPopUpPage.HelpBlocks helpBlock in Enum.GetValues(typeof(RegisterPopUpPage.HelpBlocks)))
 				{
 					if (helpBlock.ToString().Equals(placeElement))
 					{
@@ -85,7 +83,7 @@ namespace OvernightPrintsSpecBindings.Bindings
 			}
 			else
 			{
-				foreach (Fields field in Enum.GetValues(typeof(Fields)))
+				foreach (RegisterPopUpPage.Fields field in Enum.GetValues(typeof(RegisterPopUpPage.Fields)))
 				{
 					if (field.ToString().Equals(placeElement))
 					{
@@ -107,23 +105,23 @@ namespace OvernightPrintsSpecBindings.Bindings
 				switch (key)
 				{
 					case "Email Address":
-						Assert.AreEqual(row["Value"], _registerPopUpPage.GetField(Fields.Email));
+						Assert.AreEqual(row["Value"], _registerPopUpPage.GetField(RegisterPopUpPage.Fields.Email));
 						break;
 
 					case "Password":
-						Assert.AreEqual(row["Value"], _registerPopUpPage.GetField(Fields.Pass));
+						Assert.AreEqual(row["Value"], _registerPopUpPage.GetField(RegisterPopUpPage.Fields.Pass));
 						break;
 
 					case "Repassword":
-						Assert.AreEqual(row["Value"], _registerPopUpPage.GetField(Fields.VerifyPass));
+						Assert.AreEqual(row["Value"], _registerPopUpPage.GetField(RegisterPopUpPage.Fields.VerifyPass));
 						break;
 
 					case "First Name":
-						Assert.AreEqual(row["Value"], _registerPopUpPage.GetField(Fields.FirstName));
+						Assert.AreEqual(row["Value"], _registerPopUpPage.GetField(RegisterPopUpPage.Fields.FirstName));
 						break;
 
 					case "Last Name":
-						Assert.AreEqual(row["Value"], _registerPopUpPage.GetField(Fields.LastName));
+						Assert.AreEqual(row["Value"], _registerPopUpPage.GetField(RegisterPopUpPage.Fields.LastName));
 						break;
 
 					default:

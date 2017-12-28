@@ -1,5 +1,4 @@
-﻿using System;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using OvernightPrintsSpecBindings.TestBase.Pages;
 using TechTalk.SpecFlow;
 

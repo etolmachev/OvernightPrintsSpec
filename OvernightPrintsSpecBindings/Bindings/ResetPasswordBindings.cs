@@ -1,7 +1,5 @@
 ﻿using System;
 using NUnit.Framework;
-using OpenQA.Selenium;
-using OvernightPrintsSpecBindings.TestBase;
 using OvernightPrintsSpecBindings.TestBase.Pages;
 using TechTalk.SpecFlow;
 
