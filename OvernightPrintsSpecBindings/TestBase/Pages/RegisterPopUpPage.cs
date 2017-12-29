@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Linq;
 using OpenQA.Selenium;
-using static OvernightPrintsSpecBindings.Utils.Utils;
 
 namespace OvernightPrintsSpecBindings.TestBase.Pages
 {
@@ -187,7 +185,7 @@ namespace OvernightPrintsSpecBindings.TestBase.Pages
 					break;
 			}
 			javascript += ").attributes[0].ownerElement.validationMessage";
-			string valueMessage = (string)ExecuteJavaScript(Browser.Driver, javascript);
+			string valueMessage = (string)Utils.Utils.ExecuteJavaScript(Browser.Driver, javascript);
 			return valueMessage;
 		}
 

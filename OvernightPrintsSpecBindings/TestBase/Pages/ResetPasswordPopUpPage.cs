@@ -1,6 +1,5 @@
 ﻿using System;
 using OpenQA.Selenium;
-using static OvernightPrintsSpecBindings.Utils.Utils;
 
 namespace OvernightPrintsSpecBindings.TestBase.Pages
 {
@@ -54,7 +53,7 @@ namespace OvernightPrintsSpecBindings.TestBase.Pages
 		{
 
 			string textValueMessage = "return document.getElementById(\"username\").attributes[0].ownerElement.validationMessage";
-			string valueMessage = (string)ExecuteJavaScript(Browser.Driver, textValueMessage);
+			string valueMessage = (string)Utils.Utils.ExecuteJavaScript(Browser.Driver, textValueMessage);
 
 			return valueMessage;
 		}
