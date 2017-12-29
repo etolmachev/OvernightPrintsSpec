@@ -26,7 +26,7 @@ Scenario Template: Log In with Invalid Credentials
 		| <script>alert(123)</script> | 4sep98MPcalifUSA            |
 		| autestomation@gmail.com     | <script>alert(123)</script> |
 
-Scenario Template: Successfully Login With Valid Credentials
+Scenario Template: Successful Login With Valid Credentials
 	When I open browser
 	And I navigate to url "https://www.overnightprints.com"
 	When I click Log in button on Main Page

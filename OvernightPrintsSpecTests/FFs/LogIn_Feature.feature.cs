@@ -108,12 +108,12 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Successfully Login With Valid Credentials")]
+        [NUnit.Framework.DescriptionAttribute("Successful Login With Valid Credentials")]
         [NUnit.Framework.TestCaseAttribute("autestomation@gmail.com", "4sep98MPcalifUSA", null)]
         [NUnit.Framework.TestCaseAttribute("\"   autestomation@gmail.com\"", "4sep98MPcalifUSA", null)]
-        public virtual void SuccessfullyLoginWithValidCredentials(string email, string password, string[] exampleTags)
+        public virtual void SuccessfulLoginWithValidCredentials(string email, string password, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Successfully Login With Valid Credentials", exampleTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Successful Login With Valid Credentials", exampleTags);
 #line 29
 this.ScenarioSetup(scenarioInfo);
 #line 30

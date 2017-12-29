@@ -66,12 +66,12 @@ namespace OvernightPrintsSpecTests.FFs
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Successfully Reset Password")]
+        [NUnit.Framework.DescriptionAttribute("Successful Reset Password")]
         [NUnit.Framework.TestCaseAttribute("invalid@tr.su", null)]
         [NUnit.Framework.TestCaseAttribute("autestomation@gmail.com", null)]
-        public virtual void SuccessfullyResetPassword(string email, string[] exampleTags)
+        public virtual void SuccessfulResetPassword(string email, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Successfully Reset Password", exampleTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Successful Reset Password", exampleTags);
 #line 7
 this.ScenarioSetup(scenarioInfo);
 #line 8

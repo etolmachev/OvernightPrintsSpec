@@ -4,7 +4,7 @@
 	I want to have 'Create Account' feature
 	So that I can create acccount on the website using my credentials
 
-Scenario Template: Successfully Registration With Valid Credentials
+Scenario Template: Successful Registration With Valid Credentials
 	When I open browser
 	And I navigate to url "https://www.overnightprints.com"
 	And I click Log in button on Main Page

@@ -4,7 +4,7 @@
 	I want to have Forgot Password page
 
 
-Scenario Template: Successfully Reset Password 
+Scenario Template: Successful Reset Password 
 	When I open browser
 	And I navigate to url "https://www.overnightprints.com"
 	When I click Log in button on Main Page

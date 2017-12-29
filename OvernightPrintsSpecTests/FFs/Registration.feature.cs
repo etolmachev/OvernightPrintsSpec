@@ -66,13 +66,13 @@ namespace OvernightPrintsSpecTests.FFs
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Successfully Registration With Valid Credentials")]
+        [NUnit.Framework.DescriptionAttribute("Successful Registration With Valid Credentials")]
         [NUnit.Framework.TestCaseAttribute("4sep98MP", "4sep98MP", "::", "никнейм", null)]
         [NUnit.Framework.TestCaseAttribute("привет", "привет", "никнейм", "::", null)]
         [NUnit.Framework.TestCaseAttribute("\"      \"", "\"      \"", "Test", "Test", null)]
-        public virtual void SuccessfullyRegistrationWithValidCredentials(string password, string repassword, string firstName, string lastName, string[] exampleTags)
+        public virtual void SuccessfulRegistrationWithValidCredentials(string password, string repassword, string firstName, string lastName, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Successfully Registration With Valid Credentials", exampleTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Successful Registration With Valid Credentials", exampleTags);
 #line 7
 this.ScenarioSetup(scenarioInfo);
 #line 8
