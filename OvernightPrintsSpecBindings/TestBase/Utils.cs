@@ -49,21 +49,21 @@ namespace OvernightPrintsSpecBindings.TestBase
 			return result;
 		}
 
-		public static string Resolve(string email)
+		public static string Resolve(string input)
 		{
-			foreach (Match match in Regex.Matches(email, regexAll))
+			foreach (Match match in Regex.Matches(input, regexAll))
 			{
-				string resultFunction = MainMethodResolve(email);
-				email = resultFunction;
+				string resultFunction = MainMethodResolve(input);
+				input = resultFunction;
 			}
 
-			return email;
+			return input;
 		}
 
-		private static string MainMethodResolve(string email)
+		private static string MainMethodResolve(string input)
 		{
-			string key = Regex.Match(email, regexLeft).ToString();
-			string value = Regex.Match(email, regexRight).ToString();
+			string key = Regex.Match(input, regexLeft).ToString();
+			string value = Regex.Match(input, regexRight).ToString();
 
 			int length = 0;
 			try
@@ -73,7 +73,7 @@ namespace OvernightPrintsSpecBindings.TestBase
 			}
 			catch (FormatException ex) { }
 
-			string leftSide = email.Substring(0, email.IndexOf(key) - 2);
+			string leftSide = input.Substring(0, input.IndexOf(key) - 2);
 
 			string midSide = string.Empty;
 			try
@@ -83,7 +83,7 @@ namespace OvernightPrintsSpecBindings.TestBase
 			}
 			catch (KeyNotFoundException ex) { }
 
-			string rightSide = email.Substring(email.IndexOf(value) + value.Length + 2);
+			string rightSide = input.Substring(input.IndexOf(value) + value.Length + 2);
 
 			return leftSide + midSide + rightSide;
 		}
