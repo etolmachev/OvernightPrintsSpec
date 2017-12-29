@@ -62,7 +62,7 @@ namespace OvernightPrintsSpecBindings.Bindings
 		[When(@"I remember ""(.*)"" as ""(.*)""")]
 		public void WhenIRememberAs(string value, string key)
 		{
-			string result = Utils.Utils.Resolve(value);
+			string result = Utils.Resolve(value);
 			ScenarioContext.Current.Set(result,key);
 		}
 

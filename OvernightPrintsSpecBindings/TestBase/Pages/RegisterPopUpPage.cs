@@ -185,7 +185,7 @@ namespace OvernightPrintsSpecBindings.TestBase.Pages
 					break;
 			}
 			javascript += ").attributes[0].ownerElement.validationMessage";
-			string valueMessage = (string)Utils.Utils.ExecuteJavaScript(Browser.Driver, javascript);
+			string valueMessage = (string)Utils.ExecuteJavaScript(Browser.Driver, javascript);
 			return valueMessage;
 		}
 

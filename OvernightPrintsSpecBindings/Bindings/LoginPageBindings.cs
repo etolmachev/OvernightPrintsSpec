@@ -1,5 +1,6 @@
 ﻿using System;
 using NUnit.Framework;
+using OvernightPrintsSpecBindings.TestBase;
 using OvernightPrintsSpecBindings.TestBase.Pages;
 using TechTalk.SpecFlow;
 
@@ -44,7 +45,7 @@ namespace OvernightPrintsSpecBindings.Bindings
                 switch (key)
                 {
                     case "Email Address":
-                        _popUpPage.TypeEmail(Utils.Utils.ParseString(row["Value"]));
+                        _popUpPage.TypeEmail(Utils.ParseString(row["Value"]));
                         break;
 
                     case "Password":

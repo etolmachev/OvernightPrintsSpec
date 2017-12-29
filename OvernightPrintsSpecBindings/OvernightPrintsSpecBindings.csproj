@@ -97,7 +97,7 @@
     <Compile Include="TestBase\Pages\RegisterPopUpPage.cs" />
     <Compile Include="TestBase\Pages\ResetPasswordPopUpPage.cs" />
     <Compile Include="TestBase\Pages\ResponseToCreateAccountPage.cs" />
-    <Compile Include="Utils\Utils.cs" />
+    <Compile Include="TestBase\Utils.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

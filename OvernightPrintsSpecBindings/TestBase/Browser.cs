@@ -44,7 +44,7 @@ namespace OvernightPrintsSpecBindings.TestBase
 		{
 			try
 			{
-				return (bool)Utils.Utils.ExecuteJavaScript(Driver,"return document.readyState == 'complete'");
+				return (bool)Utils.ExecuteJavaScript(Driver,"return document.readyState == 'complete'");
 			}
 			catch (InvalidOperationException)
 			{

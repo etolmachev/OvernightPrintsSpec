@@ -1,5 +1,6 @@
 ﻿using System;
 using NUnit.Framework;
+using OvernightPrintsSpecBindings.TestBase;
 using OvernightPrintsSpecBindings.TestBase.Pages;
 using TechTalk.SpecFlow;
 
@@ -26,20 +27,19 @@ namespace OvernightPrintsSpecBindings.Bindings
 				switch (key)
 				{
 					case "Email Address":
-						string value = Utils.Utils.ParseString(Utils.Utils.Resolve(row["Value"]));
-						_registerPopUpPage.TypeField(RegisterPopUpPage.Fields.Email, value);
+						_registerPopUpPage.TypeField(RegisterPopUpPage.Fields.Email, Utils.ParseString(Utils.Resolve(row["Value"])));
 						break;
 					case "Password":
-						_registerPopUpPage.TypeField(RegisterPopUpPage.Fields.Pass, Utils.Utils.ParseString(row["Value"]));
+						_registerPopUpPage.TypeField(RegisterPopUpPage.Fields.Pass, Utils.ParseString(row["Value"]));
 						break;
 					case "Repassword":
-						_registerPopUpPage.TypeField(RegisterPopUpPage.Fields.VerifyPass, Utils.Utils.ParseString(row["Value"]));
+						_registerPopUpPage.TypeField(RegisterPopUpPage.Fields.VerifyPass, Utils.ParseString(row["Value"]));
 						break;
 					case "First Name":
-						_registerPopUpPage.TypeField(RegisterPopUpPage.Fields.FirstName, Utils.Utils.ParseString(row["Value"]));
+						_registerPopUpPage.TypeField(RegisterPopUpPage.Fields.FirstName, Utils.ParseString(row["Value"]));
 						break;
 					case "Last Name":
-						_registerPopUpPage.TypeField(RegisterPopUpPage.Fields.LastName, Utils.Utils.ParseString(row["Value"]));
+						_registerPopUpPage.TypeField(RegisterPopUpPage.Fields.LastName, Utils.ParseString(row["Value"]));
 						break;
 					default:
 						throw new NotImplementedException();
@@ -69,14 +69,11 @@ namespace OvernightPrintsSpecBindings.Bindings
 			string currentMessage = String.Empty;
 			if (placeElement.Contains("HelpBlock"))
 			{
-				Console.WriteLine("HelpBlock" + placeElement);
 				foreach (RegisterPopUpPage.HelpBlocks helpBlock in Enum.GetValues(typeof(RegisterPopUpPage.HelpBlocks)))
 				{
 					if (helpBlock.ToString().Equals(placeElement))
 					{
 						currentMessage = _registerPopUpPage.GetMessageHelpBlock(helpBlock);
-						Console.WriteLine(helpBlock.ToString());
-						Console.WriteLine(currentMessage);
 						break;
 					}
 				}

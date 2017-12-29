@@ -53,7 +53,7 @@ namespace OvernightPrintsSpecBindings.TestBase.Pages
 		{
 
 			string textValueMessage = "return document.getElementById(\"username\").attributes[0].ownerElement.validationMessage";
-			string valueMessage = (string)Utils.Utils.ExecuteJavaScript(Browser.Driver, textValueMessage);
+			string valueMessage = (string)Utils.ExecuteJavaScript(Browser.Driver, textValueMessage);
 
 			return valueMessage;
 		}
