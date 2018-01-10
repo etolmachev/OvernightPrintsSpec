@@ -32,8 +32,8 @@ namespace OvernightPrintsSpecTests.FFs
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Registration_Feature", "In order to create a new accountEmail\r\nAs a user\r\nI want to have \'Create Account\'" +
-                    " feature\r\nSo that I can create acccount on the website using my credentials", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Registration_Feature", "In order to create a new account\r\nAs a user\r\nI want to have \'Create Account\' feat" +
+                    "ure\r\nSo that I can create acccount on the website using my credentials", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -104,10 +104,10 @@ this.ScenarioSetup(scenarioInfo);
                         string.Format("{0}", repassword)});
             table1.AddRow(new string[] {
                         "First Name",
-                        "Test"});
+                        string.Format("{0}", firstName)});
             table1.AddRow(new string[] {
                         "Last Name",
-                        "Test"});
+                        string.Format("{0}", lastName)});
 #line 17
  testRunner.And("I set following parameters on Register popup", ((string)(null)), table1, "And ");
 #line 25
@@ -121,7 +121,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 30
  testRunner.And("I see element My Account on the Main page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 31
- testRunner.And("I see that user \"Test\" is logged in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And(string.Format("I see that user \"{0}\" is logged in", firstName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
