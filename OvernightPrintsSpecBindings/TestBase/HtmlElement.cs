@@ -85,6 +85,19 @@ namespace OvernightPrintsSpecBindings.TestBase
 				throw new Exception(string.Format("Element isn't displayed after {0} seconds", timeout));
 			}
 		}
+		public void WaitElementDisappear(int timeout = 30)
+		{
+			int t = timeout;
+			while (t > 0 && WrappedElement.Displayed)
+			{
+				Thread.Sleep(TimeSpan.FromSeconds(1));
+				t--;
+			}
+			if (WrappedElement.Displayed)
+			{
+				throw new Exception(string.Format("Element isn't disappear after {0} seconds", timeout));
+			}
+		}
 
 		//Implement Interface properties and methods
 		#region
