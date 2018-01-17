@@ -26,6 +26,11 @@ namespace OvernightPrintsSpecBindings.TestBase
 			_elementLocator = thisElementLocator;
 		}
 
+		public HtmlElement(IWebElement element)
+		{
+			_wrappedElement = element;
+		}
+
 		private IWebElement GetWebElement()
 		{
 			if (_elementLocator != null && _wrappedElement == null)
