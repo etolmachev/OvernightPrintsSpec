@@ -27,7 +27,7 @@ Scenario Template: Successful Registration With Valid Credentials
 
 	When I click Continue button on the Response to Create Account Page
 	Then I see Main page
-	And I see element My Account on the Main page
+	And I see element My Account on the Header Page
 	And I see that user "<firstName>" is logged in
 
 	Examples:

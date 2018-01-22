@@ -35,7 +35,7 @@ Scenario Template: Successful Login With Valid Credentials
 		| Email Address | <email>    |
 		| Password      | <password> |
 	And I click Log in button on Login popup
-	Then I see element My Account on the Main page
+	Then I see element My Account on the Header Page
 	And I see that user "Test" is logged in
 
 	Examples: 
