@@ -208,8 +208,8 @@ Scenario: Check Basket state after decline option "Professional File Review"
 	Then I see Basket Page
 	And I wait for 10 seconds for "500 Double Sided Business Cards" is load
 	And I see following product on the Cart
-		| Name                            | Quantity Price | Material Price | Item Subtotal |
-		| 500 Double Sided Business Cards | $39.95         | $0.00          | $29.35        |
+		| Name                            | Quantity Price                  | Item Subtotal  |
+		| 500 Double Sided Business Cards | $39.95                          | $29.35         |
 	And I see Basket contains "1" elements
 	When I click Professional File Review Decline button on Basket Page
 

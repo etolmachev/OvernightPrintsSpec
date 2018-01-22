@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using NUnit.Framework;
-using OpenQA.Selenium;
-using OvernightPrintsSpecBindings.TestBase;
+﻿using NUnit.Framework;
 using OvernightPrintsSpecBindings.TestBase.Pages;
 using OvernightPrintsSpecBindings.TestBase.Pages.Objects;
 using OvernightPrintsSpecBindings.TestBase.Pages.Products;

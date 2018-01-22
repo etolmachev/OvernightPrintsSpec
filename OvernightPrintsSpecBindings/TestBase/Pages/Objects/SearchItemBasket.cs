@@ -25,10 +25,22 @@ namespace OvernightPrintsSpecBindings.TestBase.Pages.Objects
 
 		public SearchItemBasket(TableRow row)
 		{
-			this.productName = row["Name"];
-			this.quantityPrice = row["Quantity Price"];
-			this.materialPrice = row["Material Price"];
-			this.itemSubtotal = row["Item Subtotal"];
+
+			this.productName = GetValue(row,"Name");
+			this.quantityPrice = GetValue(row,"Quantity Price");
+			this.materialPrice = GetValue(row,"Material Price");
+			this.itemSubtotal = GetValue(row,"Item Subtotal");
+		}
+
+		private string GetValue(TableRow row, string key)
+		{
+			string result = "*";
+			try
+			{
+				result = row[key];
+			}
+			catch (IndexOutOfRangeException ex) { }
+			return result;
 		}
 
 		public SearchItemBasket(HtmlElement entity)
@@ -69,13 +81,13 @@ namespace OvernightPrintsSpecBindings.TestBase.Pages.Objects
 
 			SearchItemBasket item = (SearchItemBasket) obj;
 
-			if (this.productName.Equals("*") || this.productName.Contains(item.productName))
+			if (this.productName.Equals("*") || item.productName.Equals("*") || this.productName.Contains(item.productName))
 			{
-				if (this.quantityPrice.Equals("*") || this.quantityPrice.Equals(item.quantityPrice))
+				if (this.quantityPrice.Equals("*") || item.quantityPrice.Equals("*") || this.quantityPrice.Equals(item.quantityPrice))
 				{
-					if (this.materialPrice.Equals("*") || this.materialPrice.Equals(item.materialPrice))
+					if (this.materialPrice.Equals("*") || item.materialPrice.Equals("*") || this.materialPrice.Equals(item.materialPrice))
 					{
-						if (this.itemSubtotal.Equals("*") || this.itemSubtotal.Equals(item.itemSubtotal))
+						if (this.itemSubtotal.Equals("*") || item.itemSubtotal.Equals("*") || this.itemSubtotal.Equals(item.itemSubtotal))
 						{
 							return true;
 						}
