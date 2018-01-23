@@ -45,11 +45,11 @@ namespace OvernightPrintsSpecBindings.Bindings
                 switch (key)
                 {
                     case "Email Address":
-                        _popUpPage.TypeEmail(Utils.ParseString(row["Value"]));
+                        _popUpPage.TypeEmail(Utils.Resolve(Utils.ParseString(row["Value"])));
                         break;
 
                     case "Password":
-                        _popUpPage.TypePass(row["Value"]);
+                        _popUpPage.TypePass(Utils.Resolve(row["Value"]));
                         break;
 
                     default:

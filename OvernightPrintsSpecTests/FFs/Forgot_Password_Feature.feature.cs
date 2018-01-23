@@ -68,7 +68,7 @@ namespace OvernightPrintsSpecTests.FFs
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Successful Reset Password")]
         [NUnit.Framework.TestCaseAttribute("invalid@tr.su", null)]
-        [NUnit.Framework.TestCaseAttribute("autestomation@gmail.com", null)]
+        [NUnit.Framework.TestCaseAttribute("{{config::email}}", null)]
         public virtual void SuccessfulResetPassword(string email, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Successful Reset Password", exampleTags);
@@ -125,7 +125,7 @@ this.ScenarioSetup(scenarioInfo);
                         "Value"});
             table2.AddRow(new string[] {
                         "Email Address",
-                        "autestomation@gmail.com"});
+                        "{{config::email}}"});
 #line 32
  testRunner.When("I set following parameters on Reset Password popup", ((string)(null)), table2, "When ");
 #line 35

@@ -86,10 +86,10 @@ this.ScenarioSetup(scenarioInfo);
                         "Value"});
             table1.AddRow(new string[] {
                         "Email Address",
-                        "autestomation@gmail.com"});
+                        "{{config::email}}"});
             table1.AddRow(new string[] {
                         "Password",
-                        "4sep98MPcalifUSA"});
+                        "{{config::password}}"});
 #line 12
  testRunner.And("I set following parameters on Login popup", ((string)(null)), table1, "And ");
 #line 16

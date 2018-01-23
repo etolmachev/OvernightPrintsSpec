@@ -21,10 +21,10 @@ Scenario Template: Log In with Invalid Credentials
 		| email                       | password                    |
 		|                             |                             |
 		| invalid@tr.su               | invalid                     |
-		| autestomation@gmail.com     | invalid                     |
-		| autestomation@gmail.com     |                             |
-		| <script>alert(123)</script> | 4sep98MPcalifUSA            |
-		| autestomation@gmail.com     | <script>alert(123)</script> |
+		| {{config::email}}           | invalid                     |
+		| {{config::email}}           |                             |
+		| <script>alert(123)</script> | {{config::password}}        |
+		| {{config::email}}           | <script>alert(123)</script> |
 
 Scenario Template: Successful Login With Valid Credentials
 	When I open browser
@@ -39,18 +39,18 @@ Scenario Template: Successful Login With Valid Credentials
 	And I see that user "Test" is logged in
 
 	Examples: 
-		| email                        | password         |
-		| autestomation@gmail.com      | 4sep98MPcalifUSA |
-		| "   autestomation@gmail.com" | 4sep98MPcalifUSA |
+		| email                        | password             |
+		| {{config::email}}            | {{config::password}} |
+		| "   autestomation@gmail.com" | {{config::password}} |
 
 Scenario: Verification of X Button
 	When I open browser
 	And I navigate to url "https://www.overnightprints.com"
 	When I click Log in button on Main Page
 	And I set following parameters on Login popup
-		| Field         | Value                   |
-		| Email Address | autestomation@gmail.com |
-		| Password      | 4sep98MPcalifUSA        |
+		| Field         | Value                |
+		| Email Address | {{config::email}}    |
+		| Password      | {{config::password}} |
 	And I click X button on Login popup
 	Then I see Main page
 

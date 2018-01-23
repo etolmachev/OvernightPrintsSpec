@@ -18,9 +18,9 @@ Scenario Template: Successful Reset Password
 	Then I see notification message "An email has been sent. It contains a link you must click to reset your password." on the "Reset Password"
 
 	Examples: 
-		| email                   |
-		| invalid@tr.su           |
-		| autestomation@gmail.com |
+		| email             |
+		| invalid@tr.su     |
+		| {{config::email}} |
 
 Scenario: Verification of Cancel button
 	When I open browser
@@ -30,8 +30,8 @@ Scenario: Verification of Cancel button
 	Then I see Reset Password popup
 
 	When I set following parameters on Reset Password popup
-		| Field         | Value                   |
-		| Email Address | autestomation@gmail.com |
+		| Field         | Value             |
+		| Email Address | {{config::email}} |
 	And I click Cancel button on Reset Password popup
 	Then I see Login popup 
 
