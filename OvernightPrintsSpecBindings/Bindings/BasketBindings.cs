@@ -38,10 +38,17 @@ namespace OvernightPrintsSpecBindings.Bindings
 			removeItemConfirmPopup.Click("Confirm");
 		}
 
-		[When(@"I click (Quantity|Material) dropDownMenu and choose ""(.*)"" value on Basket Page")]
-		public void WhenIClickQuantityDropDownMenuAndChooseValueOnBasketPage(string dropDownMenuName, string value)
+		[When(@"I click Property dropDownMenu and choose Value for the Product on Basket Page")]
+		public void WhenIClickPropertyDropDownMenuAndChooseValueForTheProductOnBasketPage(Table table)
 		{
-			_basketPage.ClickDropDownMenu(dropDownMenuName,value);
+			foreach (var row in table.Rows)
+			{
+				string property = row["Property"];
+				string value = row["Value"];
+				string product = row["Product"];
+
+				_basketPage.ClickDropDownMenu(property,value,product);
+			}
 		}
 
 		[When(@"I set (Discount Code|Shipping Zip Code) ""(.*)"" on the Basket Page")]

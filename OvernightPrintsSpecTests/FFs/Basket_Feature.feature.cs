@@ -203,7 +203,7 @@ this.ScenarioSetup(scenarioInfo);
                         "1000 Double Sided",
                         "$126.45",
                         "$0.00",
-                        "$92.22"});
+                        "$84.65"});
 #line 69
  testRunner.And("I see following product on the Cart", ((string)(null)), table3, "And ");
 #line 73
@@ -322,67 +322,42 @@ this.ScenarioSetup(scenarioInfo);
                         "$25.95"});
 #line 122
  testRunner.And("I see following product on the Cart", ((string)(null)), table6, "And ");
-#line 125
- testRunner.And("I see Basket contains \"1\" elements", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 127
- testRunner.When("I click Back to shopping button on Basket Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 128
- testRunner.Then("I see Main page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 130
- testRunner.When("I click Create Postcards button on Main Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 131
- testRunner.And("I click Get Started button on \"Postcards\" Product page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 132
- testRunner.And("I click Customize button on \"Postcards\" Template page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 133
- testRunner.And("I click Next button on \"Postcards\" Builder page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 134
- testRunner.And("I click Approve button on \"Postcards\" Builder page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 135
- testRunner.And("I click Skip button on \"Postcards\" Mailing List Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 137
- testRunner.Then("I wait for 50 seconds for \"Approve Order Page\" is load", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 138
- testRunner.When("I click Continue Order button on \"Postcards\" Approve Order Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 140
- testRunner.Then("I see Basket Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 141
- testRunner.And("I wait for 10 seconds for \"500 Double Sided Business Cards\" is load", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 142
- testRunner.And("I wait for 10 seconds for \"1000 Double Sided\" is load", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Name",
-                        "Quantity Price",
-                        "Material Price",
-                        "Item Subtotal"});
+                        "Property",
+                        "Value"});
             table7.AddRow(new string[] {
-                        "500 Double Sided Business Cards",
-                        "$39.95",
-                        "$0.00",
-                        "$25.95"});
-            table7.AddRow(new string[] {
-                        "1000 Double Sided",
-                        "$126.45",
-                        "$0.00",
-                        "$92.22"});
-#line 143
- testRunner.And("I see following product on the Cart", ((string)(null)), table7, "And ");
-#line 147
- testRunner.And("I see Basket contains \"2\" elements", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 149
- testRunner.When("I click Log out button on the Header Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 150
+                        "Total price",
+                        "$26.95"});
+#line 125
+ testRunner.And("I see the following properties in the shopping cart", ((string)(null)), table7, "And ");
+#line 128
+ testRunner.And("I see Basket contains \"1\" elements", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 130
+ testRunner.When("I click Back to shopping button on Basket Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 131
  testRunner.Then("I see Main page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 151
- testRunner.And("I see that user is not logged in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 153
- testRunner.When("I click CART button on the Header Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 154
+#line 133
+ testRunner.When("I click Create Postcards button on Main Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 134
+ testRunner.And("I click Get Started button on \"Postcards\" Product page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 135
+ testRunner.And("I click Customize button on \"Postcards\" Template page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 136
+ testRunner.And("I click Next button on \"Postcards\" Builder page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 137
+ testRunner.And("I click Approve button on \"Postcards\" Builder page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 138
+ testRunner.And("I click Skip button on \"Postcards\" Mailing List Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 140
+ testRunner.Then("I wait for 50 seconds for \"Approve Order Page\" is load", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 141
+ testRunner.When("I click Continue Order button on \"Postcards\" Approve Order Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 143
  testRunner.Then("I see Basket Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 155
+#line 144
  testRunner.And("I wait for 10 seconds for \"500 Double Sided Business Cards\" is load", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 156
+#line 145
  testRunner.And("I wait for 10 seconds for \"1000 Double Sided\" is load", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
@@ -394,43 +369,39 @@ this.ScenarioSetup(scenarioInfo);
                         "500 Double Sided Business Cards",
                         "$39.95",
                         "$0.00",
-                        "$29.35"});
+                        "$25.95"});
             table8.AddRow(new string[] {
                         "1000 Double Sided",
                         "$126.45",
                         "$0.00",
-                        "$98.95"});
-#line 157
+                        "$84.65"});
+#line 146
  testRunner.And("I see following product on the Cart", ((string)(null)), table8, "And ");
-#line 161
- testRunner.And("I see Basket contains \"2\" elements", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 163
- testRunner.When("I remove \"500 Double Sided Business Cards\" item from basket", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 164
- testRunner.Then("I see Basket Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 165
- testRunner.Then("I wait for 10 seconds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Name",
-                        "Quantity Price",
-                        "Material Price",
-                        "Item Subtotal"});
+                        "Property",
+                        "Value"});
             table9.AddRow(new string[] {
-                        "500 Double Sided Business Cards",
-                        "$39.95",
-                        "$0.00",
-                        "$29.35"});
-#line 166
- testRunner.Then("I don\'t see following product on the Cart", ((string)(null)), table9, "Then ");
-#line 169
- testRunner.And("I see Basket contains \"1\" elements", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 171
- testRunner.When("I remove \"1000 Double Sided\" item from basket", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 172
+                        "Total price",
+                        "$112.60"});
+#line 150
+ testRunner.And("I see the following properties in the shopping cart", ((string)(null)), table9, "And ");
+#line 153
+ testRunner.And("I see Basket contains \"2\" elements", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 155
+ testRunner.When("I click Log out button on the Header Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 156
+ testRunner.Then("I see Main page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 157
+ testRunner.And("I see that user is not logged in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 159
+ testRunner.When("I click CART button on the Header Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 160
  testRunner.Then("I see Basket Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 173
- testRunner.Then("I wait for 10 seconds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 161
+ testRunner.And("I wait for 10 seconds for \"500 Double Sided Business Cards\" is load", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 162
+ testRunner.And("I wait for 10 seconds for \"1000 Double Sided\" is load", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
                         "Name",
@@ -447,31 +418,96 @@ this.ScenarioSetup(scenarioInfo);
                         "$126.45",
                         "$0.00",
                         "$98.95"});
-#line 174
- testRunner.Then("I don\'t see following product on the Cart", ((string)(null)), table10, "Then ");
-#line 178
- testRunner.And("I see Basket contains \"0\" elements", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 180
- testRunner.When("I click Log in button on the Header Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 163
+ testRunner.And("I see following product on the Cart", ((string)(null)), table10, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table11 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Field",
+                        "Property",
                         "Value"});
             table11.AddRow(new string[] {
+                        "Total price",
+                        "$130.30"});
+#line 167
+ testRunner.And("I see the following properties in the shopping cart", ((string)(null)), table11, "And ");
+#line 170
+ testRunner.And("I see Basket contains \"2\" elements", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 172
+ testRunner.When("I remove \"500 Double Sided Business Cards\" item from basket", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 173
+ testRunner.Then("I see Basket Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 174
+ testRunner.Then("I wait for 10 seconds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name",
+                        "Quantity Price",
+                        "Material Price",
+                        "Item Subtotal"});
+            table12.AddRow(new string[] {
+                        "500 Double Sided Business Cards",
+                        "$39.95",
+                        "$0.00",
+                        "$29.35"});
+#line 175
+ testRunner.Then("I don\'t see following product on the Cart", ((string)(null)), table12, "Then ");
+#line hidden
+            TechTalk.SpecFlow.Table table13 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Property",
+                        "Value"});
+            table13.AddRow(new string[] {
+                        "Total price",
+                        "$99.95"});
+#line 178
+ testRunner.And("I see the following properties in the shopping cart", ((string)(null)), table13, "And ");
+#line 181
+ testRunner.And("I see Basket contains \"1\" elements", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 183
+ testRunner.When("I remove \"1000 Double Sided\" item from basket", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 184
+ testRunner.Then("I see Basket Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 185
+ testRunner.Then("I wait for 10 seconds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            TechTalk.SpecFlow.Table table14 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name",
+                        "Quantity Price",
+                        "Material Price",
+                        "Item Subtotal"});
+            table14.AddRow(new string[] {
+                        "500 Double Sided Business Cards",
+                        "$39.95",
+                        "$0.00",
+                        "$29.35"});
+            table14.AddRow(new string[] {
+                        "1000 Double Sided",
+                        "$126.45",
+                        "$0.00",
+                        "$98.95"});
+#line 186
+ testRunner.Then("I don\'t see following product on the Cart", ((string)(null)), table14, "Then ");
+#line 190
+ testRunner.And("I see Basket contains \"0\" elements", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 192
+ testRunner.When("I click Log in button on the Header Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table15 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Field",
+                        "Value"});
+            table15.AddRow(new string[] {
                         "Email Address",
                         "autestomation@gmail.com"});
-            table11.AddRow(new string[] {
+            table15.AddRow(new string[] {
                         "Password",
                         "4sep98MPcalifUSA"});
-#line 181
- testRunner.And("I set following parameters on Login popup", ((string)(null)), table11, "And ");
-#line 185
+#line 193
+ testRunner.And("I set following parameters on Login popup", ((string)(null)), table15, "And ");
+#line 197
  testRunner.And("I click Log in button on Login popup", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 187
+#line 199
  testRunner.Then("I see that user \"Test\" is logged in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 188
+#line 200
  testRunner.And("I see Basket Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 189
+#line 201
  testRunner.And("I see notification message \"Your shopping cart is empty.\" on the \"Basket Page\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -482,74 +518,74 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void CheckBasketStateAfterDeclineOptionProfessionalFileReview()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check Basket state after decline option \"Professional File Review\"", ((string[])(null)));
-#line 191
-this.ScenarioSetup(scenarioInfo);
-#line 192
- testRunner.When("I open browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 193
- testRunner.And("I navigate to url \"https://www.overnightprints.com\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 194
- testRunner.And("I click CART button on the Header Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 196
- testRunner.When("I click Continue Shopping button on Basket Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 197
- testRunner.Then("I see Main page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 199
- testRunner.When("I click Create Business Cards button on Main Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 200
- testRunner.And("I click Get Started button on \"Business Cards\" Product page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 201
- testRunner.And("I click Customize button on \"Business Cards\" Template page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 202
- testRunner.And("I click Next button on \"Business Cards\" Builder page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 203
- testRunner.And("I click Approve button on \"Business Cards\" Builder page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+this.ScenarioSetup(scenarioInfo);
+#line 204
+ testRunner.When("I open browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 205
- testRunner.Then("I wait for 50 seconds for \"Approve Order Page\" is load", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.And("I navigate to url \"https://www.overnightprints.com\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 206
- testRunner.When("I click Continue Order button on \"Business Cards\" Approve Order Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.And("I click CART button on the Header Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 208
- testRunner.Then("I see Basket Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("I click Continue Shopping button on Basket Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 209
+ testRunner.Then("I see Main page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 211
+ testRunner.When("I click Create Business Cards button on Main Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 212
+ testRunner.And("I click Get Started button on \"Business Cards\" Product page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 213
+ testRunner.And("I click Customize button on \"Business Cards\" Template page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 214
+ testRunner.And("I click Next button on \"Business Cards\" Builder page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 215
+ testRunner.And("I click Approve button on \"Business Cards\" Builder page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 217
+ testRunner.Then("I wait for 50 seconds for \"Approve Order Page\" is load", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 218
+ testRunner.When("I click Continue Order button on \"Business Cards\" Approve Order Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 220
+ testRunner.Then("I see Basket Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 221
  testRunner.And("I wait for 10 seconds for \"500 Double Sided Business Cards\" is load", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table16 = new TechTalk.SpecFlow.Table(new string[] {
                         "Name",
                         "Quantity Price",
                         "Item Subtotal"});
-            table12.AddRow(new string[] {
+            table16.AddRow(new string[] {
                         "500 Double Sided Business Cards",
                         "$39.95",
                         "$29.35"});
-#line 210
- testRunner.And("I see following product on the Cart", ((string)(null)), table12, "And ");
+#line 222
+ testRunner.And("I see following product on the Cart", ((string)(null)), table16, "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table13 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table17 = new TechTalk.SpecFlow.Table(new string[] {
                         "Property",
                         "Value"});
-            table13.AddRow(new string[] {
+            table17.AddRow(new string[] {
                         "Total price",
                         "$30.35"});
-#line 213
- testRunner.And("I see the following properties in the shopping cart", ((string)(null)), table13, "And ");
-#line 216
+#line 225
+ testRunner.And("I see the following properties in the shopping cart", ((string)(null)), table17, "And ");
+#line 228
  testRunner.And("I see Basket contains \"1\" elements", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 217
+#line 229
  testRunner.When("I click Professional File Review Decline button on Basket Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 219
+#line 231
  testRunner.Then("I wait for 10 seconds for \"Order Summery Block\" is load", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-            TechTalk.SpecFlow.Table table14 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table18 = new TechTalk.SpecFlow.Table(new string[] {
                         "Property",
                         "Value"});
-            table14.AddRow(new string[] {
+            table18.AddRow(new string[] {
                         "Order SubTotal price",
                         "$39.95"});
-            table14.AddRow(new string[] {
+            table18.AddRow(new string[] {
                         "Total price",
                         "$29.35"});
-#line 220
- testRunner.And("I see the following properties in the shopping cart", ((string)(null)), table14, "And ");
+#line 232
+ testRunner.And("I see the following properties in the shopping cart", ((string)(null)), table18, "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -561,79 +597,88 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void CheckBasketStateAfterChangeProductParametersOnTheBasket(string property, string value, string price, string realOrderSubtotalPrice, string realTotalPrice, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check Basket state after change product parameters on the basket", exampleTags);
-#line 225
-this.ScenarioSetup(scenarioInfo);
-#line 226
- testRunner.When("I open browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 227
- testRunner.And("I navigate to url \"https://www.overnightprints.com\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 228
- testRunner.And("I click CART button on the Header Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 230
- testRunner.When("I click Continue Shopping button on Basket Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 231
- testRunner.Then("I see Main page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 233
- testRunner.When("I click Create Business Cards button on Main Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 234
- testRunner.And("I click Get Started button on \"Business Cards\" Product page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 235
- testRunner.And("I click Customize button on \"Business Cards\" Template page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 236
- testRunner.And("I click Next button on \"Business Cards\" Builder page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 237
- testRunner.And("I click Approve button on \"Business Cards\" Builder page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+this.ScenarioSetup(scenarioInfo);
+#line 238
+ testRunner.When("I open browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 239
- testRunner.Then("I wait for 50 seconds for \"Approve Order Page\" is load", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.And("I navigate to url \"https://www.overnightprints.com\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 240
- testRunner.When("I click Continue Order button on \"Business Cards\" Approve Order Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.And("I click CART button on the Header Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 242
- testRunner.Then("I see Basket Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("I click Continue Shopping button on Basket Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 243
+ testRunner.Then("I see Main page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 245
+ testRunner.When("I click Create Business Cards button on Main Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 246
+ testRunner.And("I click Get Started button on \"Business Cards\" Product page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 247
+ testRunner.And("I click Customize button on \"Business Cards\" Template page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 248
+ testRunner.And("I click Next button on \"Business Cards\" Builder page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 249
+ testRunner.And("I click Approve button on \"Business Cards\" Builder page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 251
+ testRunner.Then("I wait for 50 seconds for \"Approve Order Page\" is load", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 252
+ testRunner.When("I click Continue Order button on \"Business Cards\" Approve Order Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 254
+ testRunner.Then("I see Basket Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 255
  testRunner.And("I wait for 10 seconds for \"500 Double Sided Business Cards\" is load", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table15 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table19 = new TechTalk.SpecFlow.Table(new string[] {
                         "Name",
                         "Quantity Price",
                         "Material Price",
                         "Item Subtotal"});
-            table15.AddRow(new string[] {
+            table19.AddRow(new string[] {
                         "500 Double Sided Business Cards",
                         "$39.95",
                         "$0.00",
                         "$29.35"});
-#line 244
- testRunner.And("I see following product on the Cart", ((string)(null)), table15, "And ");
+#line 256
+ testRunner.And("I see following product on the Cart", ((string)(null)), table19, "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table16 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table20 = new TechTalk.SpecFlow.Table(new string[] {
                         "Property",
                         "Value"});
-            table16.AddRow(new string[] {
+            table20.AddRow(new string[] {
                         "Total price",
                         "$30.35"});
-#line 247
- testRunner.And("I see the following properties in the shopping cart", ((string)(null)), table16, "And ");
-#line 250
+#line 259
+ testRunner.And("I see the following properties in the shopping cart", ((string)(null)), table20, "And ");
+#line 262
  testRunner.And("I see Basket contains \"1\" elements", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 252
- testRunner.When(string.Format("I click {0} dropDownMenu and choose \"{1}\" value on Basket Page", property, value), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 253
+#line hidden
+            TechTalk.SpecFlow.Table table21 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Property",
+                        "Value",
+                        "Product"});
+            table21.AddRow(new string[] {
+                        string.Format("{0}", property),
+                        string.Format("{0}", value),
+                        "500 Double Sided Business Cards"});
+#line 264
+ testRunner.When("I click Property dropDownMenu and choose Value for the Product on Basket Page", ((string)(null)), table21, "When ");
+#line 267
  testRunner.Then("I wait for 10 seconds for \"Order Summery Block\" is load", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-            TechTalk.SpecFlow.Table table17 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table22 = new TechTalk.SpecFlow.Table(new string[] {
                         "Property",
                         "Value"});
-            table17.AddRow(new string[] {
+            table22.AddRow(new string[] {
                         "Order SubTotal price",
                         string.Format("{0}", realOrderSubtotalPrice)});
-            table17.AddRow(new string[] {
+            table22.AddRow(new string[] {
                         "Professional File Review",
                         "$1.00"});
-            table17.AddRow(new string[] {
+            table22.AddRow(new string[] {
                         "Total price",
                         string.Format("{0}", realTotalPrice)});
-#line 254
- testRunner.And("I see the following properties in the shopping cart", ((string)(null)), table17, "And ");
+#line 268
+ testRunner.And("I see the following properties in the shopping cart", ((string)(null)), table22, "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -645,88 +690,88 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void CheckBasketStateAfterChangeShippingOption(string shippingDescription, string shippingPriceLocator, string realShippingPrice, string realTotalPrice, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check Basket state after change shipping option", exampleTags);
-#line 265
-this.ScenarioSetup(scenarioInfo);
-#line 266
- testRunner.When("I open browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 267
- testRunner.And("I navigate to url \"https://www.overnightprints.com\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 268
- testRunner.And("I click CART button on the Header Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 270
- testRunner.When("I click Continue Shopping button on Basket Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 271
- testRunner.Then("I see Main page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 273
- testRunner.When("I click Create Business Cards button on Main Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 274
- testRunner.And("I click Get Started button on \"Business Cards\" Product page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 275
- testRunner.And("I click Customize button on \"Business Cards\" Template page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 276
- testRunner.And("I click Next button on \"Business Cards\" Builder page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 277
- testRunner.And("I click Approve button on \"Business Cards\" Builder page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 279
- testRunner.Then("I wait for 50 seconds for \"Approve Order Page\" is load", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+this.ScenarioSetup(scenarioInfo);
 #line 280
- testRunner.When("I click Continue Order button on \"Business Cards\" Approve Order Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I open browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 281
+ testRunner.And("I navigate to url \"https://www.overnightprints.com\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 282
+ testRunner.And("I click CART button on the Header Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 284
+ testRunner.When("I click Continue Shopping button on Basket Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 285
+ testRunner.Then("I see Main page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 287
+ testRunner.When("I click Create Business Cards button on Main Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 288
+ testRunner.And("I click Get Started button on \"Business Cards\" Product page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 289
+ testRunner.And("I click Customize button on \"Business Cards\" Template page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 290
+ testRunner.And("I click Next button on \"Business Cards\" Builder page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 291
+ testRunner.And("I click Approve button on \"Business Cards\" Builder page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 293
+ testRunner.Then("I wait for 50 seconds for \"Approve Order Page\" is load", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 294
+ testRunner.When("I click Continue Order button on \"Business Cards\" Approve Order Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 296
  testRunner.Then("I see Basket Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 283
+#line 297
  testRunner.And("I wait for 10 seconds for \"500 Double Sided Business Cards\" is load", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table18 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table23 = new TechTalk.SpecFlow.Table(new string[] {
                         "Name",
                         "Quantity Price",
                         "Material Price",
                         "Item Subtotal"});
-            table18.AddRow(new string[] {
+            table23.AddRow(new string[] {
                         "500 Double Sided Business Cards",
                         "$39.95",
                         "$0.00",
                         "$29.35"});
-#line 284
- testRunner.And("I see following product on the Cart", ((string)(null)), table18, "And ");
+#line 298
+ testRunner.And("I see following product on the Cart", ((string)(null)), table23, "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table19 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table24 = new TechTalk.SpecFlow.Table(new string[] {
                         "Property",
                         "Value"});
-            table19.AddRow(new string[] {
+            table24.AddRow(new string[] {
                         "Total price",
                         "$30.35"});
-#line 287
- testRunner.And("I see the following properties in the shopping cart", ((string)(null)), table19, "And ");
-#line 290
+#line 301
+ testRunner.And("I see the following properties in the shopping cart", ((string)(null)), table24, "And ");
+#line 304
  testRunner.And("I see Basket contains \"1\" elements", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 292
+#line 306
  testRunner.When("I set Shipping Zip Code \"99577\" on the Basket Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 293
+#line 307
  testRunner.And("I click Apply Zip Code button on Basket Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 295
+#line 309
  testRunner.Then("I wait for 20 seconds for \"Order Summery Block\" is load", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 296
+#line 310
  testRunner.When(string.Format("I click {0} button on Basket Page", shippingDescription), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 298
+#line 312
  testRunner.Then("I wait for 15 seconds for \"Order Summery Block\" is load", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-            TechTalk.SpecFlow.Table table20 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table25 = new TechTalk.SpecFlow.Table(new string[] {
                         "Property",
                         "Value"});
-            table20.AddRow(new string[] {
+            table25.AddRow(new string[] {
                         "Order SubTotal price",
                         "$39.95"});
-            table20.AddRow(new string[] {
+            table25.AddRow(new string[] {
                         "Professional File Review",
                         "$1.00"});
-            table20.AddRow(new string[] {
+            table25.AddRow(new string[] {
                         "Total price",
                         string.Format("{0}", realTotalPrice)});
-            table20.AddRow(new string[] {
+            table25.AddRow(new string[] {
                         string.Format("{0}", shippingPriceLocator),
                         string.Format("{0}", realShippingPrice)});
-#line 299
- testRunner.And("I see the following properties in the shopping cart", ((string)(null)), table20, "And ");
+#line 313
+ testRunner.And("I see the following properties in the shopping cart", ((string)(null)), table25, "And ");
 #line hidden
             this.ScenarioCleanup();
         }

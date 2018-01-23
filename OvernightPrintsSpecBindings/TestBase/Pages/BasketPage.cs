@@ -16,10 +16,10 @@ namespace OvernightPrintsSpecBindings.TestBase.Pages
 		private readonly By _professionalFileReviewDeclineLocator = By.CssSelector("#dsn-check > li:nth-child(3) > label");
 		private readonly By _professionalFileReviewPrice = By.CssSelector("#dsn-check > li:nth-child(2) > label > span");
 		private readonly By _totalOrderLocator = By.Id("order-total");
-		private readonly By _quantityDropDownMenuLocator = By.CssSelector("#printeditem_1 .product-sku-choices .selectboxit-text");
-		private readonly By _materialDropDownMenuLocator = By.CssSelector("#printeditem_1 .product-option-choices .selectboxit-btn");
-		private readonly By _concreteQuantityItemLocator = By.CssSelector("#printeditem_1 li[data-price='$7.15']");
-		private readonly By _concreteMaterialItemLocator = By.CssSelector("#printeditem_1 .product-option-choices .selectboxit-list > li[data-id='2']");
+		private readonly By _quantityDropDownMenuLocator = By.CssSelector(".product-sku-choices .selectboxit-text");
+		private readonly By _materialDropDownMenuLocator = By.CssSelector(".product-option-choices .selectboxit-btn");
+		private readonly By _concreteQuantityItemLocator = By.CssSelector("li[data-price='$7.15']");
+		private readonly By _concreteMaterialItemLocator = By.CssSelector(".product-option-choices .selectboxit-list > li[data-id='2']");
 		private readonly By _quantityPriceLocator = By.CssSelector("#printeditem_1 .item-sku-price");
 		private readonly By _materialPriceLocator = By.CssSelector("#printeditem_1 li[data-option-name='substrate']");
 		private readonly By _inputFieldZipCodeLocator = By.Id("zipcode");
@@ -75,19 +75,21 @@ namespace OvernightPrintsSpecBindings.TestBase.Pages
 			htmlElement.WaitElementAppears(50);
 			htmlElement.Click();
 		}
-		public void ClickDropDownMenu(string dropDownName, string value)
+		public void ClickDropDownMenu(string dropDownName, string value, string product)
 		{
+			HtmlElement entity = new HtmlElement(By.XPath(_itemEntity.Replace("%s",product)));
+
 			HtmlElement dropDownMenu = null;
 			HtmlElement innerItem = null;
 			switch (dropDownName)
 			{
 				case "Quantity":
-					dropDownMenu = new HtmlElement(_quantityDropDownMenuLocator);
-					innerItem = new HtmlElement(_concreteQuantityItemLocator);
+					dropDownMenu = new HtmlElement(entity.FindElement(_quantityDropDownMenuLocator));
+					innerItem = new HtmlElement(entity.FindElement(_concreteQuantityItemLocator));
 					break;
 				case "Material":
-					dropDownMenu = new HtmlElement(_materialDropDownMenuLocator);
-					innerItem = new HtmlElement(_concreteMaterialItemLocator);
+					dropDownMenu = new HtmlElement(entity.FindElement(_materialDropDownMenuLocator));
+					innerItem = new HtmlElement(entity.FindElement(_concreteMaterialItemLocator));
 					break;
 				default:
 					throw new NotImplementedException();

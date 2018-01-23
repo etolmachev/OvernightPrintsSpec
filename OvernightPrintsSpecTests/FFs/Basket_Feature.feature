@@ -69,7 +69,7 @@ Scenario: Check Basket state when user added item in the Basket and logout of th
 	And I see following product on the Cart
 		| Name                            | Quantity Price | Material Price | Item Subtotal |
 		| 500 Double Sided Business Cards | $39.95         | $0.00          | $25.95        |
-		| 1000 Double Sided               | $126.45        | $0.00          | $92.22        |
+		| 1000 Double Sided               | $126.45        | $0.00          | $84.65        |
 	And I see Basket contains "2" elements
 
 	When I click Log out button on the Header Page
@@ -122,6 +122,9 @@ Scenario: Check Basket state when login user added item in the basket, logout, r
 	And I see following product on the Cart
 		| Name                            | Quantity Price | Material Price | Item Subtotal |
 		| 500 Double Sided Business Cards | $39.95         | $0.00          | $25.95        |
+	And I see the following properties in the shopping cart
+		| Property             | Value  |
+		| Total price          | $26.95 |
 	And I see Basket contains "1" elements
 	
 	When I click Back to shopping button on Basket Page
@@ -143,7 +146,10 @@ Scenario: Check Basket state when login user added item in the basket, logout, r
 	And I see following product on the Cart
 		| Name                            | Quantity Price | Material Price | Item Subtotal |
 		| 500 Double Sided Business Cards | $39.95         | $0.00          | $25.95        |
-		| 1000 Double Sided               | $126.45        | $0.00          | $92.22        |
+		| 1000 Double Sided               | $126.45        | $0.00          | $84.65        |
+	And I see the following properties in the shopping cart
+		| Property             | Value  |
+		| Total price          | $112.60 |
 	And I see Basket contains "2" elements
 
 	When I click Log out button on the Header Page
@@ -158,6 +164,9 @@ Scenario: Check Basket state when login user added item in the basket, logout, r
 		| Name                            | Quantity Price | Material Price | Item Subtotal |
 		| 500 Double Sided Business Cards | $39.95         | $0.00          | $29.35        |
 		| 1000 Double Sided               | $126.45        | $0.00          | $98.95        |
+	And I see the following properties in the shopping cart
+		| Property    | Value   |
+		| Total price | $130.30 |
 	And I see Basket contains "2" elements
 
 	When I remove "500 Double Sided Business Cards" item from basket
@@ -166,6 +175,9 @@ Scenario: Check Basket state when login user added item in the basket, logout, r
 	Then I don't see following product on the Cart
 		| Name                            | Quantity Price | Material Price | Item Subtotal |
 		| 500 Double Sided Business Cards | $39.95         | $0.00          | $29.35        |
+	And I see the following properties in the shopping cart
+		| Property             | Value  |
+		| Total price          | $99.95 |
 	And I see Basket contains "1" elements
 
 	When I remove "1000 Double Sided" item from basket
@@ -249,7 +261,9 @@ Scenario Template: Check Basket state after change product parameters on the bas
 		| Total price          | $30.35 |
 	And I see Basket contains "1" elements
 	
-	When I click <Property> dropDownMenu and choose "<Value>" value on Basket Page
+	When I click Property dropDownMenu and choose Value for the Product on Basket Page
+		| Property   | Value    | Product                         |
+		| <Property> | <Value>  | 500 Double Sided Business Cards |
 	Then I wait for 10 seconds for "Order Summery Block" is load
 	And I see the following properties in the shopping cart
 		| Property                 | Value                       |
