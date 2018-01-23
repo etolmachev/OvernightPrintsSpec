@@ -1,5 +1,6 @@
 ﻿using System;
 using NUnit.Framework;
+using OvernightPrintsSpecBindings.TestBase;
 using OvernightPrintsSpecBindings.TestBase.Pages;
 using TechTalk.SpecFlow;
 
@@ -27,7 +28,7 @@ namespace OvernightPrintsSpecBindings.Bindings
 				switch (key)
 				{
 					case "Email Address":
-						_resetPasswordPopUp.TypeEmail(row["Value"]);
+						_resetPasswordPopUp.TypeEmail(Utils.Resolve(row["Value"]));
 						break;
 
 					default:
