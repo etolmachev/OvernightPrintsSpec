@@ -47,7 +47,7 @@ Scenario: Check Basket state when user added item in the Basket and logout of th
 	And I wait for 10 seconds for "500 Double Sided Business Cards" is load
 	And I see following product on the Cart
 		| Name                            | Quantity Price | Material Price | Item Subtotal |
-		| 500 Double Sided Business Cards | $39.95         | $0.00          | $27.95        |
+		| 500 Double Sided Business Cards | $39.95         | $0.00          | $25.95        |
 	And I see Basket contains "1" elements
 	
 	When I click Back to shopping button on Basket Page
@@ -68,7 +68,7 @@ Scenario: Check Basket state when user added item in the Basket and logout of th
 	And I wait for 10 seconds for "1000 Double Sided" is load
 	And I see following product on the Cart
 		| Name                            | Quantity Price | Material Price | Item Subtotal |
-		| 500 Double Sided Business Cards | $39.95         | $0.00          | $27.95        |
+		| 500 Double Sided Business Cards | $39.95         | $0.00          | $25.95        |
 		| 1000 Double Sided               | $126.45        | $0.00          | $92.22        |
 	And I see Basket contains "2" elements
 
@@ -121,7 +121,7 @@ Scenario: Check Basket state when login user added item in the basket, logout, r
 	And I wait for 10 seconds for "500 Double Sided Business Cards" is load
 	And I see following product on the Cart
 		| Name                            | Quantity Price | Material Price | Item Subtotal |
-		| 500 Double Sided Business Cards | $39.95         | $0.00          | $27.95        |
+		| 500 Double Sided Business Cards | $39.95         | $0.00          | $25.95        |
 	And I see Basket contains "1" elements
 	
 	When I click Back to shopping button on Basket Page
@@ -142,7 +142,7 @@ Scenario: Check Basket state when login user added item in the basket, logout, r
 	And I wait for 10 seconds for "1000 Double Sided" is load
 	And I see following product on the Cart
 		| Name                            | Quantity Price | Material Price | Item Subtotal |
-		| 500 Double Sided Business Cards | $39.95         | $0.00          | $27.95        |
+		| 500 Double Sided Business Cards | $39.95         | $0.00          | $25.95        |
 		| 1000 Double Sided               | $126.45        | $0.00          | $92.22        |
 	And I see Basket contains "2" elements
 
@@ -210,6 +210,9 @@ Scenario: Check Basket state after decline option "Professional File Review"
 	And I see following product on the Cart
 		| Name                            | Quantity Price                  | Item Subtotal  |
 		| 500 Double Sided Business Cards | $39.95                          | $29.35         |
+	And I see the following properties in the shopping cart
+		| Property             | Value  |
+		| Total price          | $30.35 |
 	And I see Basket contains "1" elements
 	When I click Professional File Review Decline button on Basket Page
 
@@ -241,6 +244,9 @@ Scenario Template: Check Basket state after change product parameters on the bas
 	And I see following product on the Cart
 		| Name                            | Quantity Price | Material Price | Item Subtotal |
 		| 500 Double Sided Business Cards | $39.95         | $0.00          | $29.35        |
+	And I see the following properties in the shopping cart
+		| Property             | Value  |
+		| Total price          | $30.35 |
 	And I see Basket contains "1" elements
 	
 	When I click <Property> dropDownMenu and choose "<Value>" value on Basket Page
@@ -278,6 +284,9 @@ Scenario Template: Check Basket state after change shipping option
 	And I see following product on the Cart
 		| Name                            | Quantity Price | Material Price | Item Subtotal |
 		| 500 Double Sided Business Cards | $39.95         | $0.00          | $29.35        |
+	And I see the following properties in the shopping cart
+		| Property             | Value  |
+		| Total price          | $30.35 |
 	And I see Basket contains "1" elements
 
 	When I set Shipping Zip Code "99577" on the Basket Page
