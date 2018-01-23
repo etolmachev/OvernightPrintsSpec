@@ -69,10 +69,10 @@ namespace OvernightPrintsSpecTests.FFs
         [NUnit.Framework.DescriptionAttribute("Log In with Invalid Credentials")]
         [NUnit.Framework.TestCaseAttribute("", "", null)]
         [NUnit.Framework.TestCaseAttribute("invalid@tr.su", "invalid", null)]
-        [NUnit.Framework.TestCaseAttribute("autestomation@gmail.com", "invalid", null)]
-        [NUnit.Framework.TestCaseAttribute("autestomation@gmail.com", "", null)]
-        [NUnit.Framework.TestCaseAttribute("<script>alert(123)</script>", "4sep98MPcalifUSA", null)]
-        [NUnit.Framework.TestCaseAttribute("autestomation@gmail.com", "<script>alert(123)</script>", null)]
+        [NUnit.Framework.TestCaseAttribute("{{config::email}}", "invalid", null)]
+        [NUnit.Framework.TestCaseAttribute("{{config::email}}", "", null)]
+        [NUnit.Framework.TestCaseAttribute("<script>alert(123)</script>", "{{config::password}}", null)]
+        [NUnit.Framework.TestCaseAttribute("{{config::email}}", "<script>alert(123)</script>", null)]
         public virtual void LogInWithInvalidCredentials(string email, string password, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Log In with Invalid Credentials", exampleTags);
@@ -109,8 +109,8 @@ this.ScenarioSetup(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Successful Login With Valid Credentials")]
-        [NUnit.Framework.TestCaseAttribute("autestomation@gmail.com", "4sep98MPcalifUSA", null)]
-        [NUnit.Framework.TestCaseAttribute("\"   autestomation@gmail.com\"", "4sep98MPcalifUSA", null)]
+        [NUnit.Framework.TestCaseAttribute("{{config::email}}", "{{config::password}}", null)]
+        [NUnit.Framework.TestCaseAttribute("\"   autestomation@gmail.com\"", "{{config::password}}", null)]
         public virtual void SuccessfulLoginWithValidCredentials(string email, string password, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Successful Login With Valid Credentials", exampleTags);
@@ -163,10 +163,10 @@ this.ScenarioSetup(scenarioInfo);
                         "Value"});
             table3.AddRow(new string[] {
                         "Email Address",
-                        "autestomation@gmail.com"});
+                        "{{config::email}}"});
             table3.AddRow(new string[] {
                         "Password",
-                        "4sep98MPcalifUSA"});
+                        "{{config::password}}"});
 #line 50
  testRunner.And("I set following parameters on Login popup", ((string)(null)), table3, "And ");
 #line 54
