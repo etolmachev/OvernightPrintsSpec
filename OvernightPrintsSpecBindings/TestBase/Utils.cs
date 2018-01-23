@@ -30,6 +30,7 @@ namespace OvernightPrintsSpecBindings.TestBase
 		{
 			{ "rnd", (length, key) => rnd(length) },
 			{ "context", (length, key) => context(key) },
+			{ "config", (length, key) =>  config(key)}
 		};
 
 		private static string context(string key)
@@ -47,6 +48,23 @@ namespace OvernightPrintsSpecBindings.TestBase
 				result += vocabulary[tempRandom];
 			}
 			return result;
+		}
+		private static string config(string key)
+		{
+			switch (key)
+			{
+				case "email":
+					return Manager.Configuration.Email;
+
+				case "password":
+					return Manager.Configuration.Password;
+
+				case "username":
+					return Manager.Configuration.Username;
+
+				default:
+					throw new NotImplementedException();
+			}
 		}
 
 		public static string Resolve(string input)
