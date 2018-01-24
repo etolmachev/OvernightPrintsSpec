@@ -14,7 +14,7 @@ namespace OvernightPrintsSpecBindings.Bindings
 		[Then(@"I see Basket Page")]
 		public void ThenISeeBasketPage()
 		{
-			Assert.AreEqual(true,_basketPage.IsBasketPage());
+			Assert.IsTrue(_basketPage.IsBasketPage());
 		}
 
 		[Then(@"I see Basket contains ""(.*)"" elements")]
@@ -68,7 +68,7 @@ namespace OvernightPrintsSpecBindings.Bindings
 		{
 			foreach (var row in table.Rows)
 			{
-				Assert.AreEqual(true, SearchItemBasket.GetAllItemsCart().Contains(new SearchItemBasket(row)));
+				Assert.IsTrue(SearchItemBasket.GetAllItemsCart().Contains(new SearchItemBasket(row)));
 			}
 		}
 
@@ -77,7 +77,7 @@ namespace OvernightPrintsSpecBindings.Bindings
 		{
 			foreach (var row in table.Rows)
 			{
-				Assert.AreEqual(false, SearchItemBasket.GetAllItemsCart().Contains(new SearchItemBasket(row)));
+				Assert.IsFalse(SearchItemBasket.GetAllItemsCart().Contains(new SearchItemBasket(row)));
 			}
 		}
 
