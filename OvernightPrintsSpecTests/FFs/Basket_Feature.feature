@@ -22,9 +22,9 @@ Scenario: Check Basket state when user added item in the Basket and logout of th
 
 	When I click Log in button on the Header Page
 	And I set following parameters on Login popup
-		| Field         | Value                   |
-		| Email Address | autestomation@gmail.com |
-		| Password      | 4sep98MPcalifUSA        |
+		| Field         | Value                |
+		| Email Address | {{config::email}}    |
+		| Password      | {{config::password}} |
 	And I click Log in button on Login popup
 
 	Then I see element My Account on the Header Page
@@ -96,9 +96,9 @@ Scenario: Check Basket state when login user added item in the basket, logout, r
 
 	When I click Log in button on the Header Page
 	And I set following parameters on Login popup
-		| Field         | Value                   |
-		| Email Address | autestomation@gmail.com |
-		| Password      | 4sep98MPcalifUSA        |
+		| Field         | Value                |
+		| Email Address | {{config::email}}    |
+		| Password      | {{config::password}} |
 	And I click Log in button on Login popup
 
 	Then I see element My Account on the Header Page
@@ -191,9 +191,9 @@ Scenario: Check Basket state when login user added item in the basket, logout, r
 
 	When I click Log in button on the Header Page
 	And I set following parameters on Login popup
-		| Field         | Value                   |
-		| Email Address | autestomation@gmail.com |
-		| Password      | 4sep98MPcalifUSA        |
+		| Field         | Value                |
+		| Email Address | {{config::email}}    |
+		| Password      | {{config::password}} |
 	And I click Log in button on Login popup
 
 	Then I see that user "Test" is logged in

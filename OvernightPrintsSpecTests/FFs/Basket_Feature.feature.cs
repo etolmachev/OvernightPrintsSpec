@@ -111,10 +111,10 @@ this.ScenarioSetup(scenarioInfo);
                         "Value"});
             table1.AddRow(new string[] {
                         "Email Address",
-                        "autestomation@gmail.com"});
+                        "{{config::email}}"});
             table1.AddRow(new string[] {
                         "Password",
-                        "4sep98MPcalifUSA"});
+                        "{{config::password}}"});
 #line 24
  testRunner.And("I set following parameters on Login popup", ((string)(null)), table1, "And ");
 #line 28
@@ -273,10 +273,10 @@ this.ScenarioSetup(scenarioInfo);
                         "Value"});
             table5.AddRow(new string[] {
                         "Email Address",
-                        "autestomation@gmail.com"});
+                        "{{config::email}}"});
             table5.AddRow(new string[] {
                         "Password",
-                        "4sep98MPcalifUSA"});
+                        "{{config::password}}"});
 #line 98
  testRunner.And("I set following parameters on Login popup", ((string)(null)), table5, "And ");
 #line 102
@@ -495,10 +495,10 @@ this.ScenarioSetup(scenarioInfo);
                         "Value"});
             table15.AddRow(new string[] {
                         "Email Address",
-                        "autestomation@gmail.com"});
+                        "{{config::email}}"});
             table15.AddRow(new string[] {
                         "Password",
-                        "4sep98MPcalifUSA"});
+                        "{{config::password}}"});
 #line 193
  testRunner.And("I set following parameters on Login popup", ((string)(null)), table15, "And ");
 #line 197
