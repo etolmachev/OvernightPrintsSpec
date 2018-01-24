@@ -32,8 +32,7 @@ namespace OvernightPrintsSpecBindings.Bindings
 		[When(@"I remove ""(.*)"" item from basket")]
 		public void WhenIRemoveItemFromBasket(string productName)
 		{	
-			BasketPage page = new BasketPage();
-			page.RemoveProduct(productName);
+			_basketPage.RemoveProduct(productName);
 			RemoveItemConfirmPopup removeItemConfirmPopup = new RemoveItemConfirmPopup();
 			removeItemConfirmPopup.Click("Confirm");
 		}
