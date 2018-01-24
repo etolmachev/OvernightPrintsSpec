@@ -33,7 +33,6 @@ namespace OvernightPrintsSpecBindings.TestBase.Pages
 		private readonly By _redeemDiscountButtonLocator = By.Id("cpn-redeem");
 		private readonly By _orderSubtotalLocator = By.Id("order-subtotal");
 		private readonly By _progressBarLocator = By.CssSelector("div.action-in-progress-overlay");
-		private readonly By _removeItemWindowLocator = By.CssSelector("div[aria-describedby='remove-item-confirm']");
 		private readonly string _itemEntity = "//div[div/div/h2/span[contains(text(), '{0}')]]";
 
 		private HtmlElement ProgressBarOrderSummaryBlock;
