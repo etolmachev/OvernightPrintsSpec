@@ -1,4 +1,8 @@
-﻿using NUnit.Framework;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using NUnit.Framework;
+using OpenQA.Selenium;
+using OvernightPrintsSpecBindings.TestBase;
 using OvernightPrintsSpecBindings.TestBase.Pages;
 using OvernightPrintsSpecBindings.TestBase.Pages.Objects;
 using OvernightPrintsSpecBindings.TestBase.Pages.Products;
@@ -20,7 +24,7 @@ namespace OvernightPrintsSpecBindings.Bindings
 		[Then(@"I see Basket contains ""(.*)"" elements")]
 		public void ThenISeeBasketContainsElements(int countElements)
 		{
-			Assert.AreEqual(countElements, SearchItemBasket.GetAllItemsCart().Count);
+			Assert.AreEqual(countElements, GetAllItemsCart().Count);
 		}
 
 		[When(@"I click (Redeem Discount|Continue Shopping|Back to shopping|Professional File Review Decline|Apply Zip Code|2 Day Shipping|BITGIT|Add Discount Anchor) button on Basket Page")]
@@ -67,7 +71,7 @@ namespace OvernightPrintsSpecBindings.Bindings
 		{
 			foreach (var row in table.Rows)
 			{
-				Assert.IsTrue(SearchItemBasket.GetAllItemsCart().Contains(new SearchItemBasket(row)));
+				Assert.IsTrue(GetAllItemsCart().Contains(new BasketItem(row)));
 			}
 		}
 
@@ -76,7 +80,7 @@ namespace OvernightPrintsSpecBindings.Bindings
 		{
 			foreach (var row in table.Rows)
 			{
-				Assert.IsFalse(SearchItemBasket.GetAllItemsCart().Contains(new SearchItemBasket(row)));
+				Assert.IsFalse(GetAllItemsCart().Contains(new BasketItem(row)));
 			}
 		}
 
@@ -92,5 +96,18 @@ namespace OvernightPrintsSpecBindings.Bindings
 			}
 		}
 
+		private static readonly By _itemActuallyEntityLocator = By.ClassName("printeditem");
+		public static List<BasketItem> GetAllItemsCart()
+		{
+			List<BasketItem> items = new List<BasketItem>();
+
+			ReadOnlyCollection<IWebElement> entities = Browser.Driver.FindElements(_itemActuallyEntityLocator);
+			foreach (var entity in entities)
+			{
+				items.Add(new BasketItem(new HtmlElement(entity)));
+			}
+
+			return items;
+		}
 	}
 }

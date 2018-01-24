@@ -103,7 +103,7 @@
     <Compile Include="TestBase\Pages\BasketPage.cs" />
     <Compile Include="TestBase\Pages\LoginPopUpPage.cs" />
     <Compile Include="TestBase\Pages\MainPage.cs" />
-    <Compile Include="TestBase\Pages\Objects\SearchItemBasket.cs" />
+    <Compile Include="TestBase\Pages\Objects\BasketItem.cs" />
     <Compile Include="TestBase\Pages\Products\ApproveOrderPage.cs" />
     <Compile Include="TestBase\Pages\Products\BuilderPage.cs" />
     <Compile Include="TestBase\Pages\Products\MailingListPage.cs" />
