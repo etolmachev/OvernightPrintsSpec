@@ -34,50 +34,50 @@ namespace OvernightPrintsSpecBindings.TestBase.Pages
 		private readonly By _orderSubtotalLocator = By.Id("order-subtotal");
 		private readonly By _progressBarLocator = By.CssSelector("div.action-in-progress-overlay");
 		private readonly By _removeItemWindowLocator = By.CssSelector("div[aria-describedby='remove-item-confirm']");
-		private readonly string _itemEntity = "//div[div/div/h2/span[contains(text(), '%s')]]";
+		private readonly string _itemEntity = "//div[div/div/h2/span[contains(text(), '{0}')]]";
 
 		private HtmlElement ProgressBarOrderSummaryBlock;
 		private HtmlElement RemoveItemWindow;
 
 		public void Click(string buttonName)
 		{
-			HtmlElement htmlElement = null;
+			HtmlElement button = null;
 
 			switch (buttonName)
 			{
 				case "Continue Shopping":
-					htmlElement = new HtmlElement(_continueShoppingLinkLocator);
+					button = new HtmlElement(_continueShoppingLinkLocator);
 					break;
 				case "Back to shopping":
-					htmlElement = new HtmlElement(_baskToShoppingButtonLocator);
+					button = new HtmlElement(_baskToShoppingButtonLocator);
 					break;
 				case "Professional File Review Decline":
-					htmlElement = new HtmlElement(_professionalFileReviewDeclineLocator);
+					button = new HtmlElement(_professionalFileReviewDeclineLocator);
 					break;
 				case "Apply Zip Code":
-					htmlElement = new HtmlElement(_applyZipCodeButtonLocator);
+					button = new HtmlElement(_applyZipCodeButtonLocator);
 					break;
 				case "2 Day Shipping":
-					htmlElement = new HtmlElement(_option2DayShippingLocator);
+					button = new HtmlElement(_option2DayShippingLocator);
 					break;
 				case "BITGIT":
-					htmlElement = new HtmlElement(_optionBitGitLocator);
+					button = new HtmlElement(_optionBitGitLocator);
 					break;
 				case "Add Discount Anchor":
-					htmlElement = new HtmlElement(_discountAddAnchorLocator);
+					button = new HtmlElement(_discountAddAnchorLocator);
 					break;
 				case "Redeem Discount":
-					htmlElement = new HtmlElement(_redeemDiscountButtonLocator);
+					button = new HtmlElement(_redeemDiscountButtonLocator);
 					break;
 				default:
 					throw new NotImplementedException();
 			}
-			htmlElement.WaitElementAppears(50);
-			htmlElement.Click();
+			button.WaitElementAppears(50);
+			button.Click();
 		}
-		public void ClickDropDownMenu(string dropDownName, string value, string product)
+		public void ClickDropDownMenu(string dropDownName, string value, string productName)
 		{
-			HtmlElement entity = new HtmlElement(By.XPath(_itemEntity.Replace("%s",product)));
+			HtmlElement entity = new HtmlElement(By.XPath(string.Format(_itemEntity, productName)));
 
 			HtmlElement dropDownMenu = null;
 			HtmlElement innerItem = null;
@@ -101,7 +101,7 @@ namespace OvernightPrintsSpecBindings.TestBase.Pages
 		}
 		public void RemoveProduct(string productName)
 		{
-			HtmlElement entity = new HtmlElement(By.XPath(_itemEntity.Replace("%s", productName)));
+			HtmlElement entity = new HtmlElement(By.XPath(string.Format(_itemEntity,productName)));
 			HtmlElement removeButton = new HtmlElement(entity.FindElement(By.ClassName("js-remove")));
 			removeButton.WaitElementAppears(50);
 			removeButton.Click();
@@ -133,57 +133,57 @@ namespace OvernightPrintsSpecBindings.TestBase.Pages
 		}
 		public string GetTextElement(string elementName)
 		{
-			HtmlElement htmlElement = null;
+			HtmlElement field = null;
 
 			switch (elementName)
 			{
 				case "Total price":
-					htmlElement = new HtmlElement(_totalOrderLocator);
+					field = new HtmlElement(_totalOrderLocator);
 					break;
 				case "Professional File Review":
-					htmlElement = new HtmlElement(_professionalFileReviewPrice);
+					field = new HtmlElement(_professionalFileReviewPrice);
 					break;
 				case "Quantity price":
-					htmlElement = new HtmlElement(_quantityPriceLocator);
+					field = new HtmlElement(_quantityPriceLocator);
 					break;
 				case "Material price":
-					htmlElement = new HtmlElement(_materialPriceLocator);
+					field = new HtmlElement(_materialPriceLocator);
 					break;
 				case "2 Day Shipping price":
-					htmlElement = new HtmlElement(_option2DayShippingPriceLocator);
+					field = new HtmlElement(_option2DayShippingPriceLocator);
 					break;
 				case "Bit Git price":
-					htmlElement = new HtmlElement(_optionBitGitPriceLocator);
+					field = new HtmlElement(_optionBitGitPriceLocator);
 					break;
 				case "Basket Is Empty":
-					htmlElement = new HtmlElement(_individualElementInEmptyBasketLocator);
+					field = new HtmlElement(_individualElementInEmptyBasketLocator);
 					break;
 				case "Order SubTotal price":
-					htmlElement = new HtmlElement(_orderSubtotalLocator);
+					field = new HtmlElement(_orderSubtotalLocator);
 					break;
 				default:
 					throw new NotImplementedException();
 			}
-			return htmlElement.Text;
+			return field.Text;
 		}
 		public void SetField(String fieldName, String value)
 		{
-			HtmlElement htmlElement = null;
+			HtmlElement field = null;
 
 			switch (fieldName)
 			{
 				case "Discount Code":
-					htmlElement = new HtmlElement(_inputFieldDiscountLocator);
+					field = new HtmlElement(_inputFieldDiscountLocator);
 					break;
 				case "Shipping Zip Code":
-					htmlElement = new HtmlElement(_inputFieldZipCodeLocator);
+					field = new HtmlElement(_inputFieldZipCodeLocator);
 					break;
 				default:
 					throw new NotImplementedException();
 			}
 
-			htmlElement.WaitElementAppears(50);
-			htmlElement.SendKeys(value);
+			field.WaitElementAppears(50);
+			field.SendKeys(value);
 		}
 		public void PrepareBasket()
 		{
@@ -192,73 +192,42 @@ namespace OvernightPrintsSpecBindings.TestBase.Pages
 			{
 				for (int i = 0; i < n; i++)
 				{
-					BasketPage page = new BasketPage();
-					page.Click("Remove");
+					Click("Remove");
 					Thread.Sleep(5);
 					RemoveItemConfirmPopup removeItemConfirmPopup = new RemoveItemConfirmPopup();
 					removeItemConfirmPopup.Click("Confirm");
 				}
 			}
 		}
-		public void WaitItemLoad(string productName, int timeout)
+		public void WaitItemLoad(string productName, int timeout = 15)
 		{
 
-			HtmlElement entity = new HtmlElement(By.XPath(_itemEntity.Replace("%s", productName)));
-			HtmlElement htmlElement = new HtmlElement(entity.FindElement(By.ClassName("product-sku-choices")));
+			HtmlElement entity = new HtmlElement(By.XPath(string.Format(_itemEntity, productName)));
+			HtmlElement item = new HtmlElement(entity.FindElement(By.ClassName("product-sku-choices")));
 
-			int t = timeout;
-
-			while (t > 0 && htmlElement.GetAttribute("class").Contains("loading"))
+			while (timeout > 0 && item.GetAttribute("class").Contains("loading"))
 			{
 				Thread.Sleep(TimeSpan.FromSeconds(1));
-				t--;
+				timeout--;
 			}
-			if (htmlElement.GetAttribute("class").Contains("loading"))
+			if (item.GetAttribute("class").Contains("loading"))
 			{
-				throw new Exception(string.Format("Element isn't load after {0} seconds", timeout));
+				throw new Exception("Element isn't load");
 			}
 		}
-		public void WaitOrderSummaryBlockLoad(int timeout)
+		public void WaitOrderSummaryBlockLoad(int timeout = 20)
 		{
 			ProgressBarOrderSummaryBlock = new HtmlElement(_progressBarLocator);
 
-			int t = timeout;
-
-			while (t > 0 && ProgressBarOrderSummaryBlock.GetAttribute("class").Contains("is-active"))
+			while (timeout > 0 && ProgressBarOrderSummaryBlock.GetAttribute("class").Contains("is-active"))
 			{
 				Thread.Sleep(TimeSpan.FromSeconds(1));
-				t--;
+				timeout--;
 			}
 			if (ProgressBarOrderSummaryBlock.GetAttribute("class").Contains("is-active"))
 			{
-				throw new Exception(string.Format("Element isn't load after {0} seconds", timeout));
+				throw new Exception("Element isn't load");
 			}
-		}
-		public void WaitBasketPageLoadAfterRemoveItem(int timeout)
-		{
-			RemoveItemWindow = new HtmlElement(_removeItemWindowLocator);
-
-			int t = timeout;
-			bool isExit = false;
-
-			while (t > 0 && !isExit)
-			{
-				try
-				{
-					IWebElement webElement = RemoveItemWindow.WrappedElement;
-					t--;
-				}
-				catch (NoSuchElementException ex)
-				{
-					isExit = true;
-				}
-			}
-
-			if (!isExit)
-			{
-				throw new Exception(string.Format("Element isn't disappear after {0} seconds", timeout));
-			}
-			Browser.WaitReadyState(timeout);
 		}
 	}
 }

@@ -116,10 +116,6 @@ namespace OvernightPrintsSpecBindings.Bindings
 				case "1000 Double Sided":
 					new BasketPage().WaitItemLoad(elementName, timeout);
 					break;
-
-				case "Basket page":
-					new BasketPage().WaitBasketPageLoadAfterRemoveItem(timeout);
-					break;
 				case "Order Summery Block":
 					new BasketPage().WaitOrderSummaryBlockLoad(timeout);
 					break;
