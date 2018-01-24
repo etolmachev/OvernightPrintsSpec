@@ -11,8 +11,7 @@ namespace OvernightPrintsSpecBindings.TestBase.Pages.Products
 
 		public void ClickSkipButton()
 		{
-			SkipButton = new HtmlElement(_skipButtonLocator);
-			SkipButton.Click();
+			new HtmlElement(_skipButtonLocator).Click();
 		}
 	}
 }

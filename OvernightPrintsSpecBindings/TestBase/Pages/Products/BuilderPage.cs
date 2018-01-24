@@ -11,22 +11,22 @@ namespace OvernightPrintsSpecBindings.TestBase.Pages.Products
 
 		public void Click(String buttonName)
 		{
-			HtmlElement htmlElement;
+			HtmlElement button;
 
 			switch (buttonName)
 			{
 				case "Next":
-					htmlElement = new HtmlElement(_nextButtonLocator);
+					button = new HtmlElement(_nextButtonLocator);
 					break;
 				case "Approve":
-					htmlElement = new HtmlElement(_approveButtonLocator);
+					button = new HtmlElement(_approveButtonLocator);
 					break;
 				default:
 					throw new NotImplementedException();
 			}
 
-			htmlElement.WaitElementAppears(50);
-			htmlElement.Click();
+			button.WaitElementAppears(50);
+			button.Click();
 		}
 	}
 }

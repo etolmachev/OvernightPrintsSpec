@@ -17,9 +17,7 @@ namespace OvernightPrintsSpecBindings.TestBase.Pages.Products
 		{
 			HeaderPageElement = new HtmlElement(_headerPageLocator);
 			ConfirmButton = new HtmlElement(_confirmButtonLocator);
-			ConfirmButton.WaitElementAppears();
 			DeclineButton = new HtmlElement(_declineButtonLocator);
-			DeclineButton.WaitElementAppears();
 		}
 
 		public void Click(String buttonName)
@@ -27,9 +25,11 @@ namespace OvernightPrintsSpecBindings.TestBase.Pages.Products
 			switch (buttonName)
 			{
 				case "Confirm":
+					ConfirmButton.WaitElementAppears();
 					ConfirmButton.Click();
 					break;
 				case "Decline":
+					DeclineButton.WaitElementAppears();
 					DeclineButton.Click();
 					break;
 				default:
@@ -37,7 +37,7 @@ namespace OvernightPrintsSpecBindings.TestBase.Pages.Products
 			}
 		}
 
-		public string GetHeader()
+		public string GetHeaderText()
 		{
 			return HeaderPageElement.Text;
 		}

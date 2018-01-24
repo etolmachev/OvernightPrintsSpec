@@ -12,8 +12,7 @@ namespace OvernightPrintsSpecBindings.TestBase.Pages.Products
 
 		public void WaitPageLoad(int timeout)
 		{
-			ProgressBar = new HtmlElement(_progressBarLocator);
-			ProgressBar.WaitElementDisappear(timeout);
+			new HtmlElement(_progressBarLocator).WaitElementDisappear(timeout);
 		}
 
 		public void ClickContinueButton()
