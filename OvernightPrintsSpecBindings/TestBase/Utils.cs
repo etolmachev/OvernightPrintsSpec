@@ -123,7 +123,7 @@ namespace OvernightPrintsSpecBindings.TestBase
 			StringBuilder fileNameBuilder = new StringBuilder();
 
 			string fileName = TestContext.CurrentContext.Test.FullName;
-			fileName = fileName.Remove(fileName.IndexOf("("));
+			fileName = (fileName.Contains("("))? fileName.Remove(fileName.IndexOf("(")) : fileName;
 			fileNameBuilder.Append(fileName).Append("_");
 			fileNameBuilder.Append(DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"));
 			fileNameBuilder.Append(".png");
