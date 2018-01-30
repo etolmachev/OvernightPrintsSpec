@@ -67,9 +67,8 @@ namespace OvernightPrintsSpecBindings.TestBase.MessageWorker
 
 		}
 
-		private string ReadBytes(int n)
+		private string ReadBytes(int size)
 		{
-			int size = 1024;
 			byte[] buffer = new byte[size];
 			ssl.Read(buffer, 0, size);
 			return Encoding.UTF8.GetString(buffer);
