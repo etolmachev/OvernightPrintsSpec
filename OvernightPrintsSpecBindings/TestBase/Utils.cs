@@ -51,20 +51,7 @@ namespace OvernightPrintsSpecBindings.TestBase
 		}
 		private static string config(string key)
 		{
-			switch (key)
-			{
-				case "email":
-					return Manager.Configuration.Email;
-
-				case "password":
-					return Manager.Configuration.Password;
-
-				case "username":
-					return Manager.Configuration.Username;
-
-				default:
-					throw new NotImplementedException();
-			}
+			return Manager.Config.GetParameter(key);
 		}
 
 		public static string Resolve(string input)
