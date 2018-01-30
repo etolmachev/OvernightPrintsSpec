@@ -25,8 +25,8 @@ namespace OvernightPrintsSpecBindings.TestBase.MessageWorker
 				"$ LOGIN {0} {1}  \r\n",
 				"$ SELECT INBOX\r\n",
 				"$ SEARCH UNSEEN FROM '{0}'\r\n",
-				"$ FETCH {0} body.PEEK[header]\r\n",
-				"$ FETCH {0} body.PEEK[text]\r\n"
+				"$ FETCH {0} body[header]\r\n",
+				"$ FETCH {0} body[text]\r\n"
 			};
 
 			Result login = _client.ExecuteQuery(string.Format(queries[0], email, pass));
