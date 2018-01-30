@@ -3,6 +3,7 @@ using System.Threading;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OvernightPrintsSpecBindings.TestBase;
+using OvernightPrintsSpecBindings.TestBase.MessageWorker;
 using OvernightPrintsSpecBindings.TestBase.Pages;
 using TechTalk.SpecFlow;
 
@@ -24,7 +25,7 @@ namespace OvernightPrintsSpecBindings.Bindings
 		[When(@"I navigate to url ""(.*)""")]
 		public void GivenNavigateToUrl(string url)
 		{
-			Browser.Driver.Navigate().GoToUrl(url);
+			Browser.Driver.Navigate().GoToUrl(Utils.Resolve(url));
 		}
 
 		[Then(@"I wait for (.*) seconds")]
@@ -64,6 +65,19 @@ namespace OvernightPrintsSpecBindings.Bindings
 		{
 			string result = Utils.Resolve(value);
 			ScenarioContext.Current.Set(result,key);
+		}
+
+		[When(@"I check the mail and remember the link to restore the password")]
+		public void WhenICheckTheMailAndRememberTheLinkToRestoreThePassword()
+		{
+			MessageWorker worker = new MessageWorker();
+			string link = worker.GetResetPasswordLink();
+			if (link == "")
+			{
+				Assert.Fail();
+			}
+
+			ScenarioContext.Current.Set<string>(link, "resetPasswordLink");
 		}
 
 	}
