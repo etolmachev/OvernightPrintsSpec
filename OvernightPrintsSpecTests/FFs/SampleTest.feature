@@ -40,4 +40,4 @@ Scenario: Successful Reset Password
          | Password   | 4sep98MPcalifUSA |
          | Validation | 4sep98MPcalifUSA |
 	And I click Change Password Button on Reset Password Page
-	Then I see that user "12" is logged in
+	Then I see that user "{{config::username}}" is logged in

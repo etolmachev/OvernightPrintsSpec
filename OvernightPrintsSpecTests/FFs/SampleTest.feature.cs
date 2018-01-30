@@ -154,7 +154,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 42
  testRunner.And("I click Change Password Button on Reset Password Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 43
- testRunner.Then("I see that user \"12\" is logged in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I see that user \"{{config::username}}\" is logged in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

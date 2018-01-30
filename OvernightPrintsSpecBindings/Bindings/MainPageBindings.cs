@@ -42,7 +42,7 @@ namespace OvernightPrintsSpecBindings.Bindings
 		[Then(@"I see that user ""(.*)"" is logged in")]
 		public void ThenISeeThatUserIsLoggedIn(string expectedUserName)
 		{
-			Assert.AreEqual(expectedUserName,_mainPage.GetUserName());
+			Assert.AreEqual(Utils.Resolve(expectedUserName),_mainPage.GetUserName());
 		}
 
 		[Then(@"I see Main page")]
