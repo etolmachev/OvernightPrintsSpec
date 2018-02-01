@@ -1,4 +1,5 @@
-﻿
+﻿using System;
+using NUnit.Framework;
 using TechTalk.SpecFlow;
 
 namespace OvernightPrintsSpecBindings.TestBase
@@ -15,6 +16,18 @@ namespace OvernightPrintsSpecBindings.TestBase
 		[AfterScenario]
 		public void CloseBrowser()
 		{
+			try
+			{
+				if (TestContext.CurrentContext.Result.Status == TestStatus.Failed)
+				{
+					Utils.CaptureScreenShot();
+				}
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex);
+			}
+			
 			Browser.Quit();
 		}
 	}
