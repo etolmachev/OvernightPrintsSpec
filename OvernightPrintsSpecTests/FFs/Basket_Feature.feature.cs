@@ -157,7 +157,7 @@ this.ScenarioSetup(scenarioInfo);
                         "500 Double Sided Business Cards",
                         "$39.95",
                         "$0.00",
-                        "$25.95"});
+                        "$29.35"});
 #line 48
  testRunner.And("I see following product on the Cart", ((string)(null)), table2, "And ");
 #line 51
@@ -198,12 +198,12 @@ this.ScenarioSetup(scenarioInfo);
                         "500 Double Sided Business Cards",
                         "$39.95",
                         "$0.00",
-                        "$25.95"});
+                        "$29.35"});
             table3.AddRow(new string[] {
                         "1000 Double Sided",
                         "$126.45",
                         "$0.00",
-                        "$84.65"});
+                        "$98.95"});
 #line 69
  testRunner.And("I see following product on the Cart", ((string)(null)), table3, "And ");
 #line 73
@@ -319,7 +319,7 @@ this.ScenarioSetup(scenarioInfo);
                         "500 Double Sided Business Cards",
                         "$39.95",
                         "$0.00",
-                        "$25.95"});
+                        "$29.35"});
 #line 122
  testRunner.And("I see following product on the Cart", ((string)(null)), table6, "And ");
 #line hidden
@@ -328,7 +328,7 @@ this.ScenarioSetup(scenarioInfo);
                         "Value"});
             table7.AddRow(new string[] {
                         "Total price",
-                        "$26.95"});
+                        "$30.35"});
 #line 125
  testRunner.And("I see the following properties in the shopping cart", ((string)(null)), table7, "And ");
 #line 128
@@ -369,12 +369,12 @@ this.ScenarioSetup(scenarioInfo);
                         "500 Double Sided Business Cards",
                         "$39.95",
                         "$0.00",
-                        "$25.95"});
+                        "$29.35"});
             table8.AddRow(new string[] {
                         "1000 Double Sided",
                         "$126.45",
                         "$0.00",
-                        "$84.65"});
+                        "$98.95"});
 #line 146
  testRunner.And("I see following product on the Cart", ((string)(null)), table8, "And ");
 #line hidden
@@ -383,7 +383,7 @@ this.ScenarioSetup(scenarioInfo);
                         "Value"});
             table9.AddRow(new string[] {
                         "Total price",
-                        "$112.60"});
+                        "$130.30"});
 #line 150
  testRunner.And("I see the following properties in the shopping cart", ((string)(null)), table9, "And ");
 #line 153
