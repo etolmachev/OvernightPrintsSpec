@@ -32,7 +32,7 @@ namespace OvernightPrintsSpecBindings.Bindings
 					throw new NotImplementedException();
 			}
 		}
-
+    
 		[Then(@"I see Main page")]
 		public void ThenISeeMainPage()
 		{
