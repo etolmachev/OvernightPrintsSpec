@@ -31,7 +31,7 @@ Scenario: Successful Reset Password
 	Then I see notification message "An email has been sent. It contains a link you must click to reset your password." on the "Reset Password" 
 	And I wait for 5 seconds
 
-	When I check the mail and remember the link to restore the password
+	When I check the mail and remember the link to restore the password as "resetPasswordLink"
 	And I navigate to url "{{context::resetPasswordLink}}"
 	Then I see Reset Password Page
 

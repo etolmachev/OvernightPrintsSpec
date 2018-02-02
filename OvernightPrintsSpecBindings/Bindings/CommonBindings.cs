@@ -67,17 +67,17 @@ namespace OvernightPrintsSpecBindings.Bindings
 			ScenarioContext.Current.Set(result,key);
 		}
 
-		[When(@"I check the mail and remember the link to restore the password")]
-		public void WhenICheckTheMailAndRememberTheLinkToRestoreThePassword()
+		[When(@"I check the mail and remember the link to restore the password as ""(.*)""")]
+		public void WhenICheckTheMailAndRememberTheLinkToRestoreThePassword(string key)
 		{
 			MessageWorker worker = new MessageWorker();
 			string link = worker.GetResetPasswordLink();
 			if (link == "")
 			{
-				Assert.Fail();
+				Assert.Fail("In the mail there were no letters containing a link to reset the password.");
 			}
 
-			ScenarioContext.Current.Set<string>(link, "resetPasswordLink");
+			ScenarioContext.Current.Set<string>(link, key);
 		}
 
 	}

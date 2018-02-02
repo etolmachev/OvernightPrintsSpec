@@ -134,7 +134,8 @@ this.ScenarioSetup(scenarioInfo);
 #line 32
  testRunner.And("I wait for 5 seconds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 34
- testRunner.When("I check the mail and remember the link to restore the password", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I check the mail and remember the link to restore the password as \"resetPasswordL" +
+                    "ink\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 35
  testRunner.And("I navigate to url \"{{context::resetPasswordLink}}\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 36
