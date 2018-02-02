@@ -14,4 +14,4 @@ Scenario: Open Login Page and Click Sign In Button
 		| Email Address | {{config::email}}    |
 		| Password      | {{config::password}} |
 	And I click Log in button on Login popup
-	Then I see element My Account on the Main page
+	Then I see element My Account on the Header Page

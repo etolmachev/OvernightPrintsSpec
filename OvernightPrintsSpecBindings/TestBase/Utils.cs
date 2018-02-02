@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using TechTalk.SpecFlow;
 
@@ -91,6 +94,36 @@ namespace OvernightPrintsSpecBindings.TestBase
 			string rightSide = input.Substring(input.IndexOf(value) + value.Length + 2);
 
 			return leftSide + midSide + rightSide;
+		}
+
+
+		private static string dir = Directory.GetCurrentDirectory() + "\\ScreenShots";
+		private static void CreateTempDirectory()
+		{
+			if (!System.IO.Directory.Exists(dir))
+			{
+				System.IO.Directory.CreateDirectory(dir);
+			}
+		}
+		private static string CreateFileName()
+		{
+			StringBuilder fileNameBuilder = new StringBuilder();
+
+			string fileName = TestContext.CurrentContext.Test.FullName;
+			fileName = (fileName.Contains("("))? fileName.Remove(fileName.IndexOf("(")) : fileName;
+			fileNameBuilder.Append(fileName).Append("_");
+			fileNameBuilder.Append(DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"));
+			fileNameBuilder.Append(".png");
+
+			return dir + "\\" + fileNameBuilder.ToString();
+		}
+
+		public static void CaptureScreenShot()
+		{
+			Screenshot screenshot = ((ITakesScreenshot) Browser.Driver).GetScreenshot();
+			CreateTempDirectory();
+			string fileName = CreateFileName();
+			screenshot.SaveAsFile(fileName);
 		}
 	}
 }

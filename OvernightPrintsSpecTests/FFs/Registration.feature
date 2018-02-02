@@ -1,5 +1,5 @@
 ﻿Feature: Registration_Feature
-	In order to create a new accountEmail
+	In order to create a new account
 	As a user
 	I want to have 'Create Account' feature
 	So that I can create acccount on the website using my credentials
@@ -19,16 +19,16 @@ Scenario Template: Successful Registration With Valid Credentials
 		| Email Address | {{context::email}} |
 		| Password      | <password>         |
 		| Repassword    | <repassword>       |
-		| First Name    | Test               |
-		| Last Name     | Test               |
+		| First Name    | <firstName>        |
+		| Last Name     | <lastName>         |
 
 	And I click Create My Account button on Register popup
 	Then I see Response to Create Account Page
 
 	When I click Continue button on the Response to Create Account Page
 	Then I see Main page
-	And I see element My Account on the Main page
-	And I see that user "Test" is logged in
+	And I see element My Account on the Header Page
+	And I see that user "<firstName>" is logged in
 
 	Examples:
 		| password | repassword | firstName | lastName |
@@ -105,6 +105,3 @@ Scenario: Verification of X Button on the Register popup
 		| Repassword    |       |
 		| First Name    |       |
 		| Last Name     |       |
-
-
-
