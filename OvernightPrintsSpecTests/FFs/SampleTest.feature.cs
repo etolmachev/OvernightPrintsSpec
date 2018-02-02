@@ -95,7 +95,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 16
  testRunner.And("I click Log in button on Login popup", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 17
- testRunner.Then("I see element My Account on the Main page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I see element My Account on the Header Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

@@ -26,6 +26,11 @@ namespace OvernightPrintsSpecBindings.TestBase
 			_elementLocator = thisElementLocator;
 		}
 
+		public HtmlElement(IWebElement element)
+		{
+			_wrappedElement = element;
+		}
+
 		private IWebElement GetWebElement()
 		{
 			if (_elementLocator != null && _wrappedElement == null)
@@ -83,6 +88,19 @@ namespace OvernightPrintsSpecBindings.TestBase
 			if (!WrappedElement.Displayed)
 			{
 				throw new Exception(string.Format("Element isn't displayed after {0} seconds", timeout));
+			}
+		}
+		public void WaitElementDisappear(int timeout = 30)
+		{
+			int t = timeout;
+			while (t > 0 && WrappedElement.Displayed)
+			{
+				Thread.Sleep(TimeSpan.FromSeconds(1));
+				t--;
+			}
+			if (WrappedElement.Displayed)
+			{
+				throw new Exception(string.Format("Element isn't disappear after {0} seconds", timeout));
 			}
 		}
 

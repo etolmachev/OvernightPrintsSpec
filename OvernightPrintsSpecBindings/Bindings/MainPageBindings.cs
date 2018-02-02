@@ -11,7 +11,7 @@ namespace OvernightPrintsSpecBindings.Bindings
 	{
 		MainPage _mainPage = new MainPage();
 
-		[When(@"I click (Log in|Log out) button on Main Page")]
+		[When(@"I click (Log in|Log out|Create Business Cards|Create Postcards) button on Main Page")]
 		public void WhenIClickLogInButton(string buttonName)
 		{
 			switch (buttonName)
@@ -22,29 +22,17 @@ namespace OvernightPrintsSpecBindings.Bindings
 				case "Log out":
 					_mainPage.ClickLogout();
 					break;
+				case "Create Business Cards":
+					_mainPage.ClickButtonBusinessCards();
+					break;
+				case "Create Postcards":
+					_mainPage.ClickButtonPostcards();
+					break;
 				default:
 					throw new NotImplementedException();
 			}
 		}
-
-		[Then(@"I see element My Account on the Main page")]
-		public void ThenISeeElementOnTheMainPage()
-		{
-			Assert.AreEqual("My Account", _mainPage.GetTextMyAccount());
-		}
-
-		[Then(@"I see that user is not logged in")]
-		public void ThenISeeThatUserIsNotLoggedIn()
-		{
-			Assert.AreEqual(string.Empty,_mainPage.GetUserName());
-		}
-
-		[Then(@"I see that user ""(.*)"" is logged in")]
-		public void ThenISeeThatUserIsLoggedIn(string expectedUserName)
-		{
-			Assert.AreEqual(Utils.Resolve(expectedUserName),_mainPage.GetUserName());
-		}
-
+    
 		[Then(@"I see Main page")]
 		public void ThenISeeMainPage()
 		{

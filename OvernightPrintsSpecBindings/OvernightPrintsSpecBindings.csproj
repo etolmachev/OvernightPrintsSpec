@@ -82,13 +82,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bindings\ApproveOrderPageBindings.cs" />
+    <Compile Include="Bindings\BasketBindings.cs" />
+    <Compile Include="Bindings\BuilderPageBindings.cs" />
     <Compile Include="Bindings\CommonBindings.cs" />
     <Compile Include="Bindings\LoginPageBindings.cs" />
+    <Compile Include="Bindings\MailingListPageBindings.cs" />
     <Compile Include="Bindings\MainPageBindings.cs" />
+    <Compile Include="Bindings\ProductPageBindings.cs" />
     <Compile Include="Bindings\RegisterPageBindings.cs" />
     <Compile Include="Bindings\ResetPasswordBindings.cs" />
     <Compile Include="Bindings\ResetPasswordPageBindings.cs" />
     <Compile Include="Bindings\ResponseToCreateAccountBindings.cs" />
+    <Compile Include="Bindings\TemplatePageBindings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestBase\Hooks.cs" />
     <Compile Include="TestBase\Browser.cs" />
@@ -99,8 +105,16 @@
     <Compile Include="TestBase\MessageWorker\MessageWorker.cs" />
     <Compile Include="TestBase\MessageWorker\MessageWrapper.cs" />
     <Compile Include="TestBase\MessageWorker\Result.cs" />
+    <Compile Include="TestBase\Pages\BasketPage.cs" />
     <Compile Include="TestBase\Pages\LoginPopUpPage.cs" />
     <Compile Include="TestBase\Pages\MainPage.cs" />
+    <Compile Include="TestBase\Pages\Objects\BasketItem.cs" />
+    <Compile Include="TestBase\Pages\Products\ApproveOrderPage.cs" />
+    <Compile Include="TestBase\Pages\Products\BuilderPage.cs" />
+    <Compile Include="TestBase\Pages\Products\MailingListPage.cs" />
+    <Compile Include="TestBase\Pages\Products\ProductPage.cs" />
+    <Compile Include="TestBase\Pages\Products\TemplatePage.cs" />
+    <Compile Include="TestBase\Pages\Products\RemoveItemConfirmPopup.cs" />
     <Compile Include="TestBase\Pages\RegisterPopUpPage.cs" />
     <Compile Include="TestBase\Pages\ResetPasswordPage.cs" />
     <Compile Include="TestBase\Pages\ResetPasswordPopUpPage.cs" />
