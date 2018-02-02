@@ -5,7 +5,7 @@ namespace OvernightPrintsSpecBindings.TestBase.Config
 {
 	class XmlConfigReader
 	{
-		private readonly string path = "C:\\Users\\dalekseev\\Config.xml";
+		private readonly string path = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Config.xml";
 		private Configuration configuration;
 
 		public Configuration ReadConfig()
